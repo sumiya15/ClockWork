@@ -72,7 +72,7 @@ try {
 
 $lastStatus = Get-WorkingTreeStatus
 $pendingSince = if ($lastStatus) { Get-Date } else { $null }
-$nextPushAttempt = $null
+$nextPushAttempt = Get-Date
 
 Write-Host "Auto-push is monitoring $repoRoot. Changes are committed after $QuietSeconds seconds without edits."
 Write-Host 'Press Ctrl+C in this terminal to stop auto-push.'
