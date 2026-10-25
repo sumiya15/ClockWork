@@ -1,0 +1,308 @@
+[
+  {
+    "case_id": "EVAL-001",
+    "expected": {
+      "deadline_state": "normal",
+      "is_overdue": false
+    },
+    "rationale": "20 days remain, outside both reminder windows",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-001",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-002",
+    "expected": {
+      "deadline_state": "reminder",
+      "is_overdue": false
+    },
+    "rationale": "Exactly 15 days remain",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-002",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-003",
+    "expected": {
+      "deadline_state": "warning",
+      "is_overdue": false
+    },
+    "rationale": "Exactly 7 days remain",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-003",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-004",
+    "expected": {
+      "deadline_state": "due_now",
+      "is_overdue": false
+    },
+    "rationale": "The instant of the deadline is not yet after the deadline",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-004",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-005",
+    "expected": {
+      "deadline_state": "overdue",
+      "is_overdue": true
+    },
+    "rationale": "One second has passed",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-005",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-006",
+    "expected": {
+      "deadline_state": "escalated",
+      "is_overdue": true
+    },
+    "rationale": "Exactly 7 calendar days overdue",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-006",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-007",
+    "expected": {
+      "deadline_state": "completed",
+      "is_overdue": false
+    },
+    "rationale": "Completed items have no active overdue action",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-007",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-008",
+    "expected": {
+      "deadline_state": "warning",
+      "is_overdue": false,
+      "paused": true,
+      "clock_used_at": "2026-10-22T00:00:00Z"
+    },
+    "rationale": "Freeze at pause start: two active days remained",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-008",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-009",
+    "expected": {
+      "deadline_state": "warning",
+      "is_overdue": false,
+      "effective_due_at": "2026-10-26T00:00:00Z"
+    },
+    "rationale": "Three paused days move effective due to one day in future",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-009",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-010",
+    "expected": {
+      "deadline_state": "overdue",
+      "is_overdue": true,
+      "paused": true
+    },
+    "rationale": "Two days overdue before pause; pausing must not erase that breach",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-010",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-011",
+    "expected": {
+      "deadline_state": "overdue",
+      "is_overdue": true,
+      "paused": false
+    },
+    "rationale": "A workflow return does not extend fixed expiry",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-011",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-012",
+    "expected": {
+      "deadline_state": "overdue",
+      "is_overdue": true
+    },
+    "rationale": "Uploading a renewal is not officer verification",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-012",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-013",
+    "expected": {
+      "deadline_state": "normal",
+      "is_overdue": false,
+      "effective_due_at": "2027-10-25T00:00:00Z"
+    },
+    "rationale": "An explicitly verified later expiry replaces the active validity date",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-013",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-014",
+    "expected": {
+      "deadline_state": "overdue",
+      "is_overdue": true
+    },
+    "rationale": "Submission alone does not satisfy the undertaking in this demo policy",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-014",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-015",
+    "expected": {
+      "deadline_state": "completed",
+      "is_overdue": false
+    },
+    "rationale": "Officer-verified completion ends the open action",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-015",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-016",
+    "expected": {
+      "deadline_state": "unknown",
+      "is_overdue": null
+    },
+    "rationale": "Do not guess a due date",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-016",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-017",
+    "expected": {
+      "deadline_state": "unknown",
+      "is_overdue": null
+    },
+    "rationale": "No automatic routing to an invented owner",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-017",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-018",
+    "expected": {
+      "deadline_state": "unknown",
+      "is_overdue": null
+    },
+    "rationale": "A rule reference is required",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-018",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-019",
+    "expected": {
+      "deadline_state": "unknown",
+      "is_overdue": null
+    },
+    "rationale": "Reject timestamp without timezone",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-019",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-020",
+    "expected": {
+      "deadline_state": "unknown",
+      "is_overdue": null
+    },
+    "rationale": "Pause duration cannot be negative",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-020",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-021",
+    "expected": {
+      "deadline_state": "due_now",
+      "is_overdue": false
+    },
+    "rationale": "05:30 India time equals 00:00 UTC",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-021",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-022",
+    "expected": {
+      "deadline_state": "warning",
+      "is_overdue": false
+    },
+    "rationale": "The fixture explicitly supplies the end-of-day instant; it is not already expired",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-022",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-023",
+    "expected": {
+      "deadline_state": "unknown",
+      "is_overdue": null
+    },
+    "rationale": "Do not silently use a different rule version",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-023",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-024",
+    "expected": {
+      "deadline_state": "unknown",
+      "is_overdue": null
+    },
+    "rationale": "A pause cannot start after the evaluation clock",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-024",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "case_id": "EVAL-025",
+    "expected": {
+      "deadline_state": "unknown",
+      "is_overdue": null
+    },
+    "rationale": "A processing rule must not be silently applied to fixed document validity",
+    "source_type": "manual_specification",
+    "source_record_id": "EVAL-025",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  }
+]

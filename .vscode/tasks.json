@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ClockWork: Auto-push to GitHub",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\scripts\\auto_push.ps1"
+      ],
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}

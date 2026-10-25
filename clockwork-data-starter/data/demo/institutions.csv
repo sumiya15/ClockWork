@@ -1,0 +1,9 @@
+id,name,normalized_name,region,is_new,public_reference_id,source_type,source_record_id,scenario_group,generator_version
+DEMO-INST-001,DEMO Meridian Technical Institute,demo meridian technical institute,DEMO-REGION-A,True,,synthetic,DEMO-INST-001,DEMO-INSTITUTION-001,clockwork-synthetic-1.0.1
+DEMO-INST-002,DEMO Meridian Institute of Technology,demo meridian institute of technology,DEMO-REGION-A,False,,synthetic,DEMO-INST-002,DEMO-INSTITUTION-002,clockwork-synthetic-1.0.1
+DEMO-INST-003,DEMO Learning Institute 03,demo learning institute 03,DEMO-REGION-B,True,,synthetic,DEMO-INST-003,DEMO-INSTITUTION-003,clockwork-synthetic-1.0.1
+DEMO-INST-004,DEMO Learning Institute 04,demo learning institute 04,DEMO-REGION-B,False,,synthetic,DEMO-INST-004,DEMO-INSTITUTION-004,clockwork-synthetic-1.0.1
+DEMO-INST-005,DEMO Learning Institute 05,demo learning institute 05,DEMO-REGION-C,True,,synthetic,DEMO-INST-005,DEMO-INSTITUTION-005,clockwork-synthetic-1.0.1
+DEMO-INST-006,DEMO Learning Institute 06,demo learning institute 06,DEMO-REGION-C,False,,synthetic,DEMO-INST-006,DEMO-INSTITUTION-006,clockwork-synthetic-1.0.1
+DEMO-INST-007,DEMO Learning Institute 07,demo learning institute 07,DEMO-REGION-D,True,,synthetic,DEMO-INST-007,DEMO-INSTITUTION-007,clockwork-synthetic-1.0.1
+DEMO-INST-008,DEMO Learning Institute 08,demo learning institute 08,DEMO-REGION-D,False,,synthetic,DEMO-INST-008,DEMO-INSTITUTION-008,clockwork-synthetic-1.0.1

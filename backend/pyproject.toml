@@ -1,0 +1,19 @@
+# Repository-run application metadata. Install via the resolved requirements lock;
+# this monolith is not distributed as a standalone wheel.
+[project]
+name = "clockwork-backend"
+version = "0.1.0"
+description = "AICTE approval workflow and deadline-monitoring modular monolith"
+requires-python = ">=3.14"
+dependencies = [
+  "fastapi==0.162.0",
+  "uvicorn==0.54.0",
+  "pydantic==2.14.1",
+  "pymongo==4.19.0",
+  "pydantic-settings==2.16.1",
+  "pwdlib[argon2]==0.3.1",
+  "tzdata==2026.5",
+]
+
+[project.optional-dependencies]
+test = ["httpx2==2.14.0"]

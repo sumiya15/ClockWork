@@ -1,0 +1,26 @@
+{
+  "generator_version": "clockwork-synthetic-1.0.1",
+  "as_of": "2026-10-25T00:00:00Z",
+  "counts": {
+    "institutions": 8,
+    "users": 16,
+    "rules": 3,
+    "applications": 40,
+    "obligations": 56,
+    "documents": 8,
+    "notifications": 0,
+    "audit_events": 44,
+    "pause_intervals": 2
+  },
+  "files": {
+    "applications.csv": "1262e7db0dc14ab95d065da7f43cf28dbb617d89c4006c039aa20fdc0bf972ac",
+    "audit_events.csv": "033f66c14fcaf3377cf0f5e8caff6bb3930ebda6568f110737cf7f67c3a0d1a4",
+    "demo_bundle.json": "41abf17db2284d41344bd7e6c27c47c1552b4b06c1c354276716d3eee43952f3",
+    "documents.csv": "2f5e7d36f7902485b0235c4c1420886ff0b2642dfb59926090f10c5853a4e6f8",
+    "institutions.csv": "79f47107ff23aa3158fd2abcb4ca1c047708c4955299d3a85aaa40821f683a75",
+    "obligations.csv": "dfd17fd998c73d49e1a98742cde2754ec160766ed6d09fd218519884a85baff0",
+    "pause_intervals.csv": "53576df0a09a5ea032f6ce9896b27fcf7e042c88dfc7b3617b464eab603f0719",
+    "rules.csv": "76f0fc07bcd02baee54c9740435070b2cdf26dc83d661815b9b00c53108a33f3",
+    "users.csv": "aa16352cb23563e94c7332387b3def9629a1540781430f071d209c5836faabaf"
+  }
+}

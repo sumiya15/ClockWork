@@ -1,0 +1,273 @@
+{
+  "rule_id": "DEMO-CLOCKWORK",
+  "version": 1,
+  "label": "Synthetic calendar-day rules; not official AICTE policy",
+  "demo": true,
+  "timezone": "Asia/Kolkata",
+  "due_convention": "end_of_local_calendar_day",
+  "routes": {
+    "SCRUTINY_ONLY": [
+      "SCRUTINY"
+    ],
+    "SCRUTINY_EVC": [
+      "SCRUTINY",
+      "EVC"
+    ],
+    "EVC_SAC_SHC": [
+      "EVC",
+      "SAC_SHC"
+    ],
+    "EVC_ONLY": [
+      "EVC"
+    ]
+  },
+  "stage_obligations": {
+    "SCRUTINY": [
+      "scrutiny"
+    ],
+    "EVC": [
+      "evc_scheduling",
+      "evc_completion",
+      "evc_report"
+    ],
+    "SAC_SHC": [
+      "sac_shc"
+    ]
+  },
+  "timings": {
+    "scrutiny": {
+      "duration_days": 30,
+      "unit": "calendar_days",
+      "start_event": "stage_entered",
+      "pausable": true,
+      "thresholds": [
+        {
+          "days_after_due": -15,
+          "recipient": "owner",
+          "why": "Demo rule: scrutiny reaches -15 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -7,
+          "recipient": "owner",
+          "why": "Demo rule: scrutiny reaches -7 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 1,
+          "recipient": "owner",
+          "why": "Demo rule: scrutiny reaches 1 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 7,
+          "recipient": "bureau_officer",
+          "why": "Demo rule: scrutiny reaches 7 calendar days relative to its due date."
+        }
+      ]
+    },
+    "evc_scheduling": {
+      "duration_days": 30,
+      "unit": "calendar_days",
+      "start_event": "stage_entered",
+      "pausable": false,
+      "thresholds": [
+        {
+          "days_after_due": -15,
+          "recipient": "owner",
+          "why": "Demo rule: evc_scheduling reaches -15 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -7,
+          "recipient": "owner",
+          "why": "Demo rule: evc_scheduling reaches -7 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 1,
+          "recipient": "owner",
+          "why": "Demo rule: evc_scheduling reaches 1 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 7,
+          "recipient": "bureau_officer",
+          "why": "Demo rule: evc_scheduling reaches 7 calendar days relative to its due date."
+        }
+      ]
+    },
+    "evc_completion": {
+      "duration_days": 30,
+      "unit": "calendar_days",
+      "start_event": "visit_scheduled",
+      "pausable": false,
+      "thresholds": [
+        {
+          "days_after_due": -15,
+          "recipient": "owner",
+          "why": "Demo rule: evc_completion reaches -15 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -7,
+          "recipient": "owner",
+          "why": "Demo rule: evc_completion reaches -7 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 1,
+          "recipient": "owner",
+          "why": "Demo rule: evc_completion reaches 1 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 7,
+          "recipient": "bureau_officer",
+          "why": "Demo rule: evc_completion reaches 7 calendar days relative to its due date."
+        }
+      ]
+    },
+    "evc_report": {
+      "duration_days": 30,
+      "unit": "calendar_days",
+      "start_event": "visit_completed",
+      "pausable": false,
+      "thresholds": [
+        {
+          "days_after_due": -15,
+          "recipient": "owner",
+          "why": "Demo rule: evc_report reaches -15 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -7,
+          "recipient": "owner",
+          "why": "Demo rule: evc_report reaches -7 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 1,
+          "recipient": "owner",
+          "why": "Demo rule: evc_report reaches 1 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 7,
+          "recipient": "bureau_officer",
+          "why": "Demo rule: evc_report reaches 7 calendar days relative to its due date."
+        }
+      ]
+    },
+    "sac_shc": {
+      "duration_days": 30,
+      "unit": "calendar_days",
+      "start_event": "stage_entered",
+      "pausable": true,
+      "thresholds": [
+        {
+          "days_after_due": -15,
+          "recipient": "owner",
+          "why": "Demo rule: sac_shc reaches -15 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -7,
+          "recipient": "owner",
+          "why": "Demo rule: sac_shc reaches -7 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 1,
+          "recipient": "owner",
+          "why": "Demo rule: sac_shc reaches 1 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 7,
+          "recipient": "bureau_officer",
+          "why": "Demo rule: sac_shc reaches 7 calendar days relative to its due date."
+        }
+      ]
+    },
+    "undertaking": {
+      "duration_days": 30,
+      "unit": "calendar_days",
+      "start_event": "condition_issued",
+      "pausable": false,
+      "thresholds": [
+        {
+          "days_after_due": -15,
+          "recipient": "owner",
+          "why": "Demo rule: undertaking reaches -15 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -7,
+          "recipient": "owner",
+          "why": "Demo rule: undertaking reaches -7 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 1,
+          "recipient": "owner",
+          "why": "Demo rule: undertaking reaches 1 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 7,
+          "recipient": "bureau_officer",
+          "why": "Demo rule: undertaking reaches 7 calendar days relative to its due date."
+        }
+      ]
+    },
+    "document_validity": {
+      "duration_days": 365,
+      "unit": "calendar_days",
+      "start_event": "document_issued",
+      "pausable": false,
+      "thresholds": [
+        {
+          "days_after_due": -90,
+          "recipient": "owner",
+          "why": "Demo rule: document_validity reaches -90 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -60,
+          "recipient": "owner",
+          "why": "Demo rule: document_validity reaches -60 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -30,
+          "recipient": "owner",
+          "why": "Demo rule: document_validity reaches -30 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -15,
+          "recipient": "owner",
+          "why": "Demo rule: document_validity reaches -15 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 1,
+          "recipient": "owner",
+          "why": "Demo rule: document_validity reaches 1 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 7,
+          "recipient": "bureau_officer",
+          "why": "Demo rule: document_validity reaches 7 calendar days relative to its due date."
+        }
+      ]
+    },
+    "compliance_submission": {
+      "duration_days": 30,
+      "unit": "calendar_days",
+      "start_event": "condition_issued",
+      "pausable": false,
+      "thresholds": [
+        {
+          "days_after_due": -15,
+          "recipient": "owner",
+          "why": "Demo rule: compliance_submission reaches -15 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": -7,
+          "recipient": "owner",
+          "why": "Demo rule: compliance_submission reaches -7 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 1,
+          "recipient": "owner",
+          "why": "Demo rule: compliance_submission reaches 1 calendar days relative to its due date."
+        },
+        {
+          "days_after_due": 7,
+          "recipient": "bureau_officer",
+          "why": "Demo rule: compliance_submission reaches 7 calendar days relative to its due date."
+        }
+      ]
+    }
+  }
+}

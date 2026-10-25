@@ -1,0 +1,15 @@
+services:
+  mongo:
+    image: mongo:8.0.28
+    command: [mongod, --replSet, rs0, --bind_ip_all, --port, "27018"]
+    ports:
+      - "127.0.0.1:27018:27018"
+    volumes:
+      - clockwork_demo_mongo:/data/db
+    healthcheck:
+      test: [CMD, mongosh, --port, "27018", --quiet, --eval, "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+volumes:
+  clockwork_demo_mongo:

@@ -1,0 +1,610 @@
+{
+  "scope": "Synthetic, author-specified offline rule examples; not real-data or blind validation; no model trained",
+  "cases": 25,
+  "passed": 25,
+  "unknown_expected_cases": 8,
+  "binary_eligible_cases": 17,
+  "confusion_matrices": {
+    "naive_due_date_baseline": {
+      "tp": 6,
+      "tn": 8,
+      "fp": 3,
+      "fn": 0,
+      "abstentions": 0
+    },
+    "reference_rules": {
+      "tp": 6,
+      "tn": 11,
+      "fp": 0,
+      "fn": 0,
+      "abstentions": 0
+    }
+  },
+  "results": [
+    {
+      "case_id": "EVAL-001",
+      "title": "Future deadline",
+      "passed": true,
+      "expected": {
+        "deadline_state": "normal",
+        "is_overdue": false
+      },
+      "actual": {
+        "deadline_state": "normal",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2026-11-14T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=normal; evaluated at 2026-10-25T00:00:00Z; due 2026-11-14T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "20 days remain, outside both reminder windows"
+    },
+    {
+      "case_id": "EVAL-002",
+      "title": "Reminder boundary",
+      "passed": true,
+      "expected": {
+        "deadline_state": "reminder",
+        "is_overdue": false
+      },
+      "actual": {
+        "deadline_state": "reminder",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2026-11-09T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=reminder; evaluated at 2026-10-25T00:00:00Z; due 2026-11-09T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "Exactly 15 days remain"
+    },
+    {
+      "case_id": "EVAL-003",
+      "title": "Warning boundary",
+      "passed": true,
+      "expected": {
+        "deadline_state": "warning",
+        "is_overdue": false
+      },
+      "actual": {
+        "deadline_state": "warning",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2026-11-01T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=warning; evaluated at 2026-10-25T00:00:00Z; due 2026-11-01T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "Exactly 7 days remain"
+    },
+    {
+      "case_id": "EVAL-004",
+      "title": "Exact due timestamp",
+      "passed": true,
+      "expected": {
+        "deadline_state": "due_now",
+        "is_overdue": false
+      },
+      "actual": {
+        "deadline_state": "due_now",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2026-10-25T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=due_now; evaluated at 2026-10-25T00:00:00Z; due 2026-10-25T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "The instant of the deadline is not yet after the deadline"
+    },
+    {
+      "case_id": "EVAL-005",
+      "title": "One second overdue",
+      "passed": true,
+      "expected": {
+        "deadline_state": "overdue",
+        "is_overdue": true
+      },
+      "actual": {
+        "deadline_state": "overdue",
+        "is_overdue": true,
+        "paused": false,
+        "effective_due_at": "2026-10-24T23:59:59Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=overdue; evaluated at 2026-10-25T00:00:00Z; due 2026-10-24T23:59:59Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": true,
+      "rationale": "One second has passed"
+    },
+    {
+      "case_id": "EVAL-006",
+      "title": "Escalation boundary",
+      "passed": true,
+      "expected": {
+        "deadline_state": "escalated",
+        "is_overdue": true
+      },
+      "actual": {
+        "deadline_state": "escalated",
+        "is_overdue": true,
+        "paused": false,
+        "effective_due_at": "2026-10-18T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=escalated; evaluated at 2026-10-25T00:00:00Z; due 2026-10-18T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": "bureau_officer",
+        "next_action": "Designated bureau officer reviews the overdue action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": true,
+      "rationale": "Exactly 7 calendar days overdue"
+    },
+    {
+      "case_id": "EVAL-007",
+      "title": "Completed old item",
+      "passed": true,
+      "expected": {
+        "deadline_state": "completed",
+        "is_overdue": false
+      },
+      "actual": {
+        "deadline_state": "completed",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2026-09-25T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=completed; evaluated at 2026-10-25T00:00:00Z; due 2026-09-25T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "No open action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "Completed items have no active overdue action"
+    },
+    {
+      "case_id": "EVAL-008",
+      "title": "Paused before deadline",
+      "passed": true,
+      "expected": {
+        "deadline_state": "warning",
+        "is_overdue": false,
+        "paused": true,
+        "clock_used_at": "2026-10-22T00:00:00Z"
+      },
+      "actual": {
+        "deadline_state": "warning",
+        "is_overdue": false,
+        "paused": true,
+        "effective_due_at": "2026-10-24T00:00:00Z",
+        "clock_used_at": "2026-10-22T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=warning; evaluated at 2026-10-22T00:00:00Z; due 2026-10-24T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Await institution resubmission; retain any pre-pause breach",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": true,
+      "rationale": "Freeze at pause start: two active days remained"
+    },
+    {
+      "case_id": "EVAL-009",
+      "title": "Resumed after three days",
+      "passed": true,
+      "expected": {
+        "deadline_state": "warning",
+        "is_overdue": false,
+        "effective_due_at": "2026-10-26T00:00:00Z"
+      },
+      "actual": {
+        "deadline_state": "warning",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2026-10-26T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=warning; evaluated at 2026-10-25T00:00:00Z; due 2026-10-26T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": true,
+      "rationale": "Three paused days move effective due to one day in future"
+    },
+    {
+      "case_id": "EVAL-010",
+      "title": "Pause retains existing breach",
+      "passed": true,
+      "expected": {
+        "deadline_state": "overdue",
+        "is_overdue": true,
+        "paused": true
+      },
+      "actual": {
+        "deadline_state": "overdue",
+        "is_overdue": true,
+        "paused": true,
+        "effective_due_at": "2026-10-15T00:00:00Z",
+        "clock_used_at": "2026-10-17T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=overdue; evaluated at 2026-10-17T00:00:00Z; due 2026-10-15T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Await institution resubmission; retain any pre-pause breach",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": true,
+      "rationale": "Two days overdue before pause; pausing must not erase that breach"
+    },
+    {
+      "case_id": "EVAL-011",
+      "title": "Document expiry never pauses",
+      "passed": true,
+      "expected": {
+        "deadline_state": "overdue",
+        "is_overdue": true,
+        "paused": false
+      },
+      "actual": {
+        "deadline_state": "overdue",
+        "is_overdue": true,
+        "paused": false,
+        "effective_due_at": "2026-10-24T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-DOCUMENT@1",
+        "reason": "DEMO RULE: Example document deadline rule, not official policy; state=overdue; evaluated at 2026-10-25T00:00:00Z; due 2026-10-24T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [
+          "Pause ignored: this demo rule uses a fixed deadline"
+        ],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": true,
+      "rationale": "A workflow return does not extend fixed expiry"
+    },
+    {
+      "case_id": "EVAL-012",
+      "title": "Unverified renewal",
+      "passed": true,
+      "expected": {
+        "deadline_state": "overdue",
+        "is_overdue": true
+      },
+      "actual": {
+        "deadline_state": "overdue",
+        "is_overdue": true,
+        "paused": false,
+        "effective_due_at": "2026-10-24T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-DOCUMENT@1",
+        "reason": "DEMO RULE: Example document deadline rule, not official policy; state=overdue; evaluated at 2026-10-25T00:00:00Z; due 2026-10-24T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Authorised officer must verify or reject submitted evidence",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": true,
+      "rationale": "Uploading a renewal is not officer verification"
+    },
+    {
+      "case_id": "EVAL-013",
+      "title": "Verified renewal",
+      "passed": true,
+      "expected": {
+        "deadline_state": "normal",
+        "is_overdue": false,
+        "effective_due_at": "2027-10-25T00:00:00Z"
+      },
+      "actual": {
+        "deadline_state": "normal",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2027-10-25T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-DOCUMENT@1",
+        "reason": "DEMO RULE: Example document deadline rule, not official policy; state=normal; evaluated at 2026-10-25T00:00:00Z; due 2027-10-25T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": true,
+      "rationale": "An explicitly verified later expiry replaces the active validity date"
+    },
+    {
+      "case_id": "EVAL-014",
+      "title": "Undertaking evidence awaiting verification",
+      "passed": true,
+      "expected": {
+        "deadline_state": "overdue",
+        "is_overdue": true
+      },
+      "actual": {
+        "deadline_state": "overdue",
+        "is_overdue": true,
+        "paused": false,
+        "effective_due_at": "2026-10-24T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-UNDERTAKING@1",
+        "reason": "DEMO RULE: Example undertaking deadline rule, not official policy; state=overdue; evaluated at 2026-10-25T00:00:00Z; due 2026-10-24T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Authorised officer must verify or reject submitted evidence",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": true,
+      "rationale": "Submission alone does not satisfy the undertaking in this demo policy"
+    },
+    {
+      "case_id": "EVAL-015",
+      "title": "Verified completed undertaking",
+      "passed": true,
+      "expected": {
+        "deadline_state": "completed",
+        "is_overdue": false
+      },
+      "actual": {
+        "deadline_state": "completed",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2026-10-23T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-UNDERTAKING@1",
+        "reason": "DEMO RULE: Example undertaking deadline rule, not official policy; state=completed; evaluated at 2026-10-25T00:00:00Z; due 2026-10-23T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "No open action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "Officer-verified completion ends the open action"
+    },
+    {
+      "case_id": "EVAL-016",
+      "title": "Missing due date",
+      "passed": true,
+      "expected": {
+        "deadline_state": "unknown",
+        "is_overdue": null
+      },
+      "actual": {
+        "deadline_state": "unknown",
+        "is_overdue": null,
+        "paused": false,
+        "reason": "Missing timestamp",
+        "next_action": "Manual correction required; no automated notice or decision",
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": null,
+      "rationale": "Do not guess a due date"
+    },
+    {
+      "case_id": "EVAL-017",
+      "title": "Missing owner",
+      "passed": true,
+      "expected": {
+        "deadline_state": "unknown",
+        "is_overdue": null
+      },
+      "actual": {
+        "deadline_state": "unknown",
+        "is_overdue": null,
+        "paused": false,
+        "reason": "Missing responsible owner; request manual correction",
+        "next_action": "Manual correction required; no automated notice or decision",
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "No automatic routing to an invented owner"
+    },
+    {
+      "case_id": "EVAL-018",
+      "title": "Missing rule",
+      "passed": true,
+      "expected": {
+        "deadline_state": "unknown",
+        "is_overdue": null
+      },
+      "actual": {
+        "deadline_state": "unknown",
+        "is_overdue": null,
+        "paused": false,
+        "reason": "Missing or unsupported rule version",
+        "next_action": "Manual correction required; no automated notice or decision",
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "A rule reference is required"
+    },
+    {
+      "case_id": "EVAL-019",
+      "title": "Naive timestamp",
+      "passed": true,
+      "expected": {
+        "deadline_state": "unknown",
+        "is_overdue": null
+      },
+      "actual": {
+        "deadline_state": "unknown",
+        "is_overdue": null,
+        "paused": false,
+        "reason": "Timestamp must include a timezone",
+        "next_action": "Manual correction required; no automated notice or decision",
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": null,
+      "rationale": "Reject timestamp without timezone"
+    },
+    {
+      "case_id": "EVAL-020",
+      "title": "Negative pause",
+      "passed": true,
+      "expected": {
+        "deadline_state": "unknown",
+        "is_overdue": null
+      },
+      "actual": {
+        "deadline_state": "unknown",
+        "is_overdue": null,
+        "paused": false,
+        "reason": "Paused seconds must be a nonnegative integer",
+        "next_action": "Manual correction required; no automated notice or decision",
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "Pause duration cannot be negative"
+    },
+    {
+      "case_id": "EVAL-021",
+      "title": "Equivalent timezone representation",
+      "passed": true,
+      "expected": {
+        "deadline_state": "due_now",
+        "is_overdue": false
+      },
+      "actual": {
+        "deadline_state": "due_now",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2026-10-25T00:00:00Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-STAGE@1",
+        "reason": "DEMO RULE: Example stage deadline rule, not official policy; state=due_now; evaluated at 2026-10-25T00:00:00Z; due 2026-10-25T00:00:00Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "05:30 India time equals 00:00 UTC"
+    },
+    {
+      "case_id": "EVAL-022",
+      "title": "India date-only end of day, explicitly converted",
+      "passed": true,
+      "expected": {
+        "deadline_state": "warning",
+        "is_overdue": false
+      },
+      "actual": {
+        "deadline_state": "warning",
+        "is_overdue": false,
+        "paused": false,
+        "effective_due_at": "2026-10-25T18:29:59Z",
+        "clock_used_at": "2026-10-25T00:00:00Z",
+        "rule_ref": "DEMO-RULE-DOCUMENT@1",
+        "reason": "DEMO RULE: Example document deadline rule, not official policy; state=warning; evaluated at 2026-10-25T00:00:00Z; due 2026-10-25T18:29:59Z",
+        "next_owner_user_id": "EVAL-OFFICER-1",
+        "escalation_role": null,
+        "next_action": "Complete the assigned action",
+        "warnings": [],
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "The fixture explicitly supplies the end-of-day instant; it is not already expired"
+    },
+    {
+      "case_id": "EVAL-023",
+      "title": "Unknown rule version",
+      "passed": true,
+      "expected": {
+        "deadline_state": "unknown",
+        "is_overdue": null
+      },
+      "actual": {
+        "deadline_state": "unknown",
+        "is_overdue": null,
+        "paused": false,
+        "reason": "Missing or unsupported rule version",
+        "next_action": "Manual correction required; no automated notice or decision",
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "Do not silently use a different rule version"
+    },
+    {
+      "case_id": "EVAL-024",
+      "title": "Future pause",
+      "passed": true,
+      "expected": {
+        "deadline_state": "unknown",
+        "is_overdue": null
+      },
+      "actual": {
+        "deadline_state": "unknown",
+        "is_overdue": null,
+        "paused": false,
+        "reason": "Pause cannot start in the future",
+        "next_action": "Manual correction required; no automated notice or decision",
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "A pause cannot start after the evaluation clock"
+    },
+    {
+      "case_id": "EVAL-025",
+      "title": "Rule belongs to another obligation type",
+      "passed": true,
+      "expected": {
+        "deadline_state": "unknown",
+        "is_overdue": null
+      },
+      "actual": {
+        "deadline_state": "unknown",
+        "is_overdue": null,
+        "paused": false,
+        "reason": "Rule type does not match obligation type; manual correction required",
+        "next_action": "Manual correction required; no automated notice or decision",
+        "algorithm_version": "clockwork-reference-1.0.1"
+      },
+      "baseline_overdue": false,
+      "rationale": "A processing rule must not be silently applied to fixed document validity"
+    }
+  ]
+}

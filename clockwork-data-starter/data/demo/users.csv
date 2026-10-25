@@ -1,0 +1,17 @@
+id,username,role,display_name,region,institution_id,committee,source_type,source_record_id,scenario_group,generator_version
+DEMO-USER-ADMIN,admin.demo,administrator,Fictional admin.demo,,,,synthetic,DEMO-USER-ADMIN,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-BUREAU,bureau.demo,bureau_officer,Fictional bureau.demo,,,,synthetic,DEMO-USER-BUREAU,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-RO-1,regional_1.demo,regional_officer,Fictional regional_1.demo,DEMO-REGION-A,,,synthetic,DEMO-USER-RO-1,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-RO-2,regional_2.demo,regional_officer,Fictional regional_2.demo,DEMO-REGION-B,,,synthetic,DEMO-USER-RO-2,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-RO-3,regional_3.demo,regional_officer,Fictional regional_3.demo,DEMO-REGION-C,,,synthetic,DEMO-USER-RO-3,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-RO-4,regional_4.demo,regional_officer,Fictional regional_4.demo,DEMO-REGION-D,,,synthetic,DEMO-USER-RO-4,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-COMMITTEE-1,committee_1.demo,committee,Fictional committee_1.demo,,,DEMO-COMMITTEE-1,synthetic,DEMO-USER-COMMITTEE-1,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-COMMITTEE-2,committee_2.demo,committee,Fictional committee_2.demo,,,DEMO-COMMITTEE-2,synthetic,DEMO-USER-COMMITTEE-2,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-INST-1,institution_1.demo,institution,Fictional institution_1.demo,,DEMO-INST-001,,synthetic,DEMO-USER-INST-1,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-INST-2,institution_2.demo,institution,Fictional institution_2.demo,,DEMO-INST-002,,synthetic,DEMO-USER-INST-2,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-INST-3,institution_3.demo,institution,Fictional institution_3.demo,,DEMO-INST-003,,synthetic,DEMO-USER-INST-3,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-INST-4,institution_4.demo,institution,Fictional institution_4.demo,,DEMO-INST-004,,synthetic,DEMO-USER-INST-4,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-INST-5,institution_5.demo,institution,Fictional institution_5.demo,,DEMO-INST-005,,synthetic,DEMO-USER-INST-5,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-INST-6,institution_6.demo,institution,Fictional institution_6.demo,,DEMO-INST-006,,synthetic,DEMO-USER-INST-6,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-INST-7,institution_7.demo,institution,Fictional institution_7.demo,,DEMO-INST-007,,synthetic,DEMO-USER-INST-7,DEMO-USERS,clockwork-synthetic-1.0.1
+DEMO-USER-INST-8,institution_8.demo,institution,Fictional institution_8.demo,,DEMO-INST-008,,synthetic,DEMO-USER-INST-8,DEMO-USERS,clockwork-synthetic-1.0.1

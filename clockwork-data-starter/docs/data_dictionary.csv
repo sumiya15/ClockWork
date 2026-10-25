@@ -1,0 +1,112 @@
+table,field,sqlite_type,required_or_key,primary_key_component,description
+institutions,id,TEXT,True,1,Stable fictional primary key; never an actual AICTE identifier
+institutions,name,TEXT,True,0,Fictional institution display name
+institutions,normalized_name,TEXT,True,0,Whitespace/case normalized search value; never an identity key
+institutions,region,TEXT,True,0,Fictional region or regional user scope
+institutions,is_new,INTEGER,True,0,Boolean synthetic new-institution flag
+institutions,public_reference_id,TEXT,False,0,Optional public namespace identifier; null in these fictional operational fixtures
+institutions,source_type,TEXT,True,0,Synthetic for every operational fixture row
+institutions,source_record_id,TEXT,True,0,Stable original fixture identity for provenance
+institutions,scenario_group,TEXT,True,0,Synthetic family identifier; evaluation groups are kept separate
+institutions,generator_version,TEXT,True,0,Version of the deterministic fixture generator
+users,id,TEXT,True,1,Stable fictional primary key; never an actual AICTE identifier
+users,username,TEXT,True,0,"Fictional identity profile, not a working login credential"
+users,role,TEXT,True,0,"One of administrator, bureau_officer, regional_officer, committee, institution"
+users,display_name,TEXT,True,0,Fictional user display name; no real personal information
+users,region,TEXT,False,0,Fictional region or regional user scope
+users,institution_id,TEXT,False,0,Foreign key to the correct institution; an institutional user's own-record scope
+users,committee,TEXT,False,0,Fictional committee assignment identifier
+users,source_type,TEXT,True,0,Synthetic for every operational fixture row
+users,source_record_id,TEXT,True,0,Stable original fixture identity for provenance
+users,scenario_group,TEXT,True,0,Synthetic family identifier; evaluation groups are kept separate
+users,generator_version,TEXT,True,0,Version of the deterministic fixture generator
+rules,id,TEXT,True,1,Stable fictional primary key; never an actual AICTE identifier
+rules,version,INTEGER,True,2,"Pinned positive rule version, part of the composite primary key"
+rules,obligation_type,TEXT,True,0,Obligation kind to which this rule belongs; cross-type use requires manual correction
+rules,label,TEXT,True,0,Readable example rule description
+rules,reminder_days,INTEGER,True,0,"Demo calendar-day reminder threshold, not an official SLA"
+rules,warning_days,INTEGER,True,0,"Demo calendar-day warning threshold, not an official SLA"
+rules,escalation_days,INTEGER,True,0,"Demo calendar days overdue before escalation, not an official SLA"
+rules,pausable,INTEGER,True,0,Whether this example rule supports a stage-processing pause
+rules,default_duration_days,INTEGER,False,0,Optional example duration for creating a new stage task; unvalidated demo setting
+rules,validation_status,TEXT,True,0,Explicitly unvalidated_demo_setting until reviewed by an authorized source
+rules,policy_source_url,TEXT,False,0,Optional validated policy reference; null for proposed example rules
+rules,source_type,TEXT,True,0,Synthetic for every operational fixture row
+rules,source_record_id,TEXT,True,0,Stable original fixture identity for provenance
+rules,scenario_group,TEXT,True,0,Synthetic family identifier; evaluation groups are kept separate
+rules,generator_version,TEXT,True,0,Version of the deterministic fixture generator
+applications,id,TEXT,True,1,Stable fictional primary key; never an actual AICTE identifier
+applications,institution_id,TEXT,True,0,Foreign key to the correct institution; an institutional user's own-record scope
+applications,route_code,TEXT,True,0,Configured demo route identifier
+applications,current_stage,TEXT,True,0,Stage must belong to the configured route
+applications,status,TEXT,True,0,Application or obligation state; full transition permissions are a later application milestone
+applications,submitted_at,TEXT,True,0,"Timezone-aware application submission instant, normalized to UTC"
+applications,submission_key,TEXT,True,0,Unique source submission identity; duplicate-content conflict requires review
+applications,source_type,TEXT,True,0,Synthetic for every operational fixture row
+applications,source_record_id,TEXT,True,0,Stable original fixture identity for provenance
+applications,scenario_group,TEXT,True,0,Synthetic family identifier; evaluation groups are kept separate
+applications,generator_version,TEXT,True,0,Version of the deterministic fixture generator
+obligations,id,TEXT,True,1,Stable fictional primary key; never an actual AICTE identifier
+obligations,application_id,TEXT,True,0,Foreign key to the owning application
+obligations,type,TEXT,True,0,"Obligation kind: stage, undertaking or document"
+obligations,owner_user_id,TEXT,True,0,Responsible fictional user; cannot be guessed when missing
+obligations,rule_id,TEXT,True,0,"Versioned rule ID, with rule_version forming the reference"
+obligations,rule_version,INTEGER,True,0,Version pinned to the obligation
+obligations,base_due_at,TEXT,True,0,Original due or expiry instant; preserved when an adjusted due is calculated
+obligations,status,TEXT,True,0,Application or obligation state; full transition permissions are a later application milestone
+obligations,paused_seconds,INTEGER,True,0,Completed pause duration supported by interval records; only stage rules can use it
+obligations,paused_at,TEXT,False,0,"Active pause start, or null; existing pre-pause breach remains visible"
+obligations,renewal_due_at,TEXT,False,0,Proposed later expiry; not effective until evidence is verified
+obligations,evidence_status,TEXT,True,0,"Submission and verification state, distinct from compliance completion"
+obligations,closed_at,TEXT,False,0,Timezone-aware completion instant; required for completed obligation snapshots
+obligations,source_type,TEXT,True,0,Synthetic for every operational fixture row
+obligations,source_record_id,TEXT,True,0,Stable original fixture identity for provenance
+obligations,scenario_group,TEXT,True,0,Synthetic family identifier; evaluation groups are kept separate
+obligations,generator_version,TEXT,True,0,Version of the deterministic fixture generator
+documents,id,TEXT,True,1,Stable fictional primary key; never an actual AICTE identifier
+documents,application_id,TEXT,True,0,Foreign key to the owning application
+documents,institution_id,TEXT,True,0,Foreign key to the correct institution; an institutional user's own-record scope
+documents,obligation_id,TEXT,True,0,Foreign key to the associated tracked obligation
+documents,document_type,TEXT,True,0,Example lease or other prescribed document category
+documents,issued_at,TEXT,True,0,Timezone-aware issue instant
+documents,expires_at,TEXT,True,0,Original validity expiry instant; cannot precede issue
+documents,verification_status,TEXT,True,0,Metadata state for officer review; upload is not verification
+documents,renewal_expires_at,TEXT,False,0,Proposed renewed expiry recorded separately from original expiry
+documents,evidence_file,TEXT,False,0,Relative path to an explicitly fictional evidence file; no secure upload service implied
+documents,source_type,TEXT,True,0,Synthetic for every operational fixture row
+documents,source_record_id,TEXT,True,0,Stable original fixture identity for provenance
+documents,scenario_group,TEXT,True,0,Synthetic family identifier; evaluation groups are kept separate
+documents,generator_version,TEXT,True,0,Version of the deterministic fixture generator
+notifications,id,TEXT,True,1,Stable fictional primary key; never an actual AICTE identifier
+notifications,obligation_id,TEXT,True,0,Foreign key to the associated tracked obligation
+notifications,recipient_user_id,TEXT,True,0,Scoped intended notification recipient; no notifications are seeded
+notifications,channel,TEXT,True,0,Delivery channel label; a row is not proof of external delivery
+notifications,delivery_status,TEXT,True,0,"Explicit delivery lifecycle state; must distinguish queued, simulated and sent"
+notifications,why,TEXT,True,0,Readable triggering reason tied to rule and obligation
+notifications,deduplication_key,TEXT,True,0,Unique notification episode/rule/threshold identity for later outbox use
+notifications,source_type,TEXT,True,0,Synthetic for every operational fixture row
+notifications,source_record_id,TEXT,True,0,Stable original fixture identity for provenance
+notifications,scenario_group,TEXT,True,0,Synthetic family identifier; evaluation groups are kept separate
+notifications,generator_version,TEXT,True,0,Version of the deterministic fixture generator
+audit_events,id,TEXT,True,1,Stable fictional primary key; never an actual AICTE identifier
+audit_events,application_id,TEXT,True,0,Foreign key to the owning application
+audit_events,actor_user_id,TEXT,False,0,Optional fictional actor reference; seed generator events have null actor
+audit_events,actor_label,TEXT,True,0,Explicit synthetic-history marker or generator label
+audit_events,action,TEXT,True,0,Synthetic event type; no live action execution is implied
+audit_events,occurred_at,TEXT,True,0,Timezone-aware synthetic history time; future live audit should also store real recorded_at
+audit_events,reason,TEXT,True,0,Required explanation for the synthetic event or pause
+audit_events,previous_state,TEXT,False,0,"Prior illustrative value, or null for initial seeding"
+audit_events,resulting_state,TEXT,False,0,Illustrative result; not an automatic regulatory approval
+audit_events,source_type,TEXT,True,0,Synthetic for every operational fixture row
+audit_events,source_record_id,TEXT,True,0,Stable original fixture identity for provenance
+audit_events,scenario_group,TEXT,True,0,Synthetic family identifier; evaluation groups are kept separate
+audit_events,generator_version,TEXT,True,0,Version of the deterministic fixture generator
+pause_intervals,id,TEXT,True,1,Stable fictional primary key; never an actual AICTE identifier
+pause_intervals,obligation_id,TEXT,True,0,Foreign key to the associated tracked obligation
+pause_intervals,started_at,TEXT,True,0,Timezone-aware pause start
+pause_intervals,ended_at,TEXT,False,0,"Timezone-aware pause end, or null while active"
+pause_intervals,reason,TEXT,True,0,Required explanation for the synthetic event or pause
+pause_intervals,source_type,TEXT,True,0,Synthetic for every operational fixture row
+pause_intervals,source_record_id,TEXT,True,0,Stable original fixture identity for provenance
+pause_intervals,scenario_group,TEXT,True,0,Synthetic family identifier; evaluation groups are kept separate
+pause_intervals,generator_version,TEXT,True,0,Version of the deterministic fixture generator

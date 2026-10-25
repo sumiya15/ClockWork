@@ -1,0 +1,4 @@
+id,version,obligation_type,label,reminder_days,warning_days,escalation_days,pausable,default_duration_days,validation_status,policy_source_url,source_type,source_record_id,scenario_group,generator_version
+DEMO-RULE-STAGE,1,stage,"Example stage deadline rule, not official policy",15,7,7,True,30,unvalidated_demo_setting,,synthetic,DEMO-RULE-STAGE,DEMO-CONFIG,clockwork-synthetic-1.0.1
+DEMO-RULE-UNDERTAKING,1,undertaking,"Example undertaking deadline rule, not official policy",15,7,7,False,,unvalidated_demo_setting,,synthetic,DEMO-RULE-UNDERTAKING,DEMO-CONFIG,clockwork-synthetic-1.0.1
+DEMO-RULE-DOCUMENT,1,document,"Example document deadline rule, not official policy",15,7,7,False,,unvalidated_demo_setting,,synthetic,DEMO-RULE-DOCUMENT,DEMO-CONFIG,clockwork-synthetic-1.0.1

@@ -1,0 +1,174 @@
+{
+  "warning": "Unvalidated synthetic demonstration settings, not AICTE policy. No automatic regulatory decisions.",
+  "initial_demo_time": "2026-10-25T00:00:00Z",
+  "routes": {
+    "SCRUTINY_ONLY": [
+      "SCRUTINY"
+    ],
+    "SCRUTINY_EVC": [
+      "SCRUTINY",
+      "EVC"
+    ],
+    "EVC_SAC_SHC": [
+      "EVC",
+      "SAC_SHC"
+    ],
+    "EVC_ONLY": [
+      "EVC"
+    ]
+  },
+  "rules": [
+    {
+      "id": "DEMO-RULE-STAGE",
+      "version": 1,
+      "obligation_type": "stage",
+      "label": "Example stage deadline rule, not official policy",
+      "reminder_days": 15,
+      "warning_days": 7,
+      "escalation_days": 7,
+      "pausable": true,
+      "default_duration_days": 30,
+      "validation_status": "unvalidated_demo_setting",
+      "policy_source_url": null,
+      "source_type": "synthetic",
+      "source_record_id": "DEMO-RULE-STAGE",
+      "scenario_group": "DEMO-CONFIG",
+      "generator_version": "clockwork-synthetic-1.0.1"
+    },
+    {
+      "id": "DEMO-RULE-UNDERTAKING",
+      "version": 1,
+      "obligation_type": "undertaking",
+      "label": "Example undertaking deadline rule, not official policy",
+      "reminder_days": 15,
+      "warning_days": 7,
+      "escalation_days": 7,
+      "pausable": false,
+      "default_duration_days": null,
+      "validation_status": "unvalidated_demo_setting",
+      "policy_source_url": null,
+      "source_type": "synthetic",
+      "source_record_id": "DEMO-RULE-UNDERTAKING",
+      "scenario_group": "DEMO-CONFIG",
+      "generator_version": "clockwork-synthetic-1.0.1"
+    },
+    {
+      "id": "DEMO-RULE-DOCUMENT",
+      "version": 1,
+      "obligation_type": "document",
+      "label": "Example document deadline rule, not official policy",
+      "reminder_days": 15,
+      "warning_days": 7,
+      "escalation_days": 7,
+      "pausable": false,
+      "default_duration_days": null,
+      "validation_status": "unvalidated_demo_setting",
+      "policy_source_url": null,
+      "source_type": "synthetic",
+      "source_record_id": "DEMO-RULE-DOCUMENT",
+      "scenario_group": "DEMO-CONFIG",
+      "generator_version": "clockwork-synthetic-1.0.1"
+    }
+  ],
+  "escalation_recipients": {
+    "reminder": "institution_or_owner",
+    "warning": "owner_and_regional_officer",
+    "overdue": "regional_officer",
+    "escalated": "bureau_officer_or_designated_authority"
+  },
+  "delivery_enabled": false,
+  "workflow": {
+    "assumptions": "Unvalidated demonstration: SCRUTINY regional officer; EVC committee 1; SAC_SHC committee 2. SAC/SHC is one processing label, not an appeal or statutory decision. Rescrutiny resumes the same obligation.",
+    "stage_rules": {
+      "SCRUTINY": {
+        "rule_id": "DEMO-RULE-STAGE",
+        "rule_version": 1,
+        "required_role": "regional_officer"
+      },
+      "EVC": {
+        "rule_id": "DEMO-RULE-STAGE",
+        "rule_version": 1,
+        "required_role": "committee"
+      },
+      "SAC_SHC": {
+        "rule_id": "DEMO-RULE-STAGE",
+        "rule_version": 1,
+        "required_role": "committee"
+      }
+    },
+    "assignments": [
+      {
+        "region": "DEMO-REGION-A",
+        "stage": "SCRUTINY",
+        "owner_user_id": "DEMO-USER-RO-1",
+        "committee": null
+      },
+      {
+        "region": "DEMO-REGION-A",
+        "stage": "EVC",
+        "owner_user_id": "DEMO-USER-COMMITTEE-1",
+        "committee": "DEMO-COMMITTEE-1"
+      },
+      {
+        "region": "DEMO-REGION-A",
+        "stage": "SAC_SHC",
+        "owner_user_id": "DEMO-USER-COMMITTEE-2",
+        "committee": "DEMO-COMMITTEE-2"
+      },
+      {
+        "region": "DEMO-REGION-B",
+        "stage": "SCRUTINY",
+        "owner_user_id": "DEMO-USER-RO-2",
+        "committee": null
+      },
+      {
+        "region": "DEMO-REGION-B",
+        "stage": "EVC",
+        "owner_user_id": "DEMO-USER-COMMITTEE-1",
+        "committee": "DEMO-COMMITTEE-1"
+      },
+      {
+        "region": "DEMO-REGION-B",
+        "stage": "SAC_SHC",
+        "owner_user_id": "DEMO-USER-COMMITTEE-2",
+        "committee": "DEMO-COMMITTEE-2"
+      },
+      {
+        "region": "DEMO-REGION-C",
+        "stage": "SCRUTINY",
+        "owner_user_id": "DEMO-USER-RO-3",
+        "committee": null
+      },
+      {
+        "region": "DEMO-REGION-C",
+        "stage": "EVC",
+        "owner_user_id": "DEMO-USER-COMMITTEE-1",
+        "committee": "DEMO-COMMITTEE-1"
+      },
+      {
+        "region": "DEMO-REGION-C",
+        "stage": "SAC_SHC",
+        "owner_user_id": "DEMO-USER-COMMITTEE-2",
+        "committee": "DEMO-COMMITTEE-2"
+      },
+      {
+        "region": "DEMO-REGION-D",
+        "stage": "SCRUTINY",
+        "owner_user_id": "DEMO-USER-RO-4",
+        "committee": null
+      },
+      {
+        "region": "DEMO-REGION-D",
+        "stage": "EVC",
+        "owner_user_id": "DEMO-USER-COMMITTEE-1",
+        "committee": "DEMO-COMMITTEE-1"
+      },
+      {
+        "region": "DEMO-REGION-D",
+        "stage": "SAC_SHC",
+        "owner_user_id": "DEMO-USER-COMMITTEE-2",
+        "committee": "DEMO-COMMITTEE-2"
+      }
+    ]
+  }
+}

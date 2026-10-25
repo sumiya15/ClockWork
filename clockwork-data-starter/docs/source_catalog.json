@@ -1,0 +1,82 @@
+{
+  "checked_on": "2026-10-25",
+  "public_operational_dataset_verified": false,
+  "note": "Failure to verify a suitable dataset is not proof none exists. No public operational records imported.",
+  "sources": [
+    {
+      "source_id": "REF-APH",
+      "name": "AICTE Approval Process Handbook 2024-25 to 2026-27, government-hosted copy",
+      "url": "https://cdnbbsr.s3waas.gov.in/s35938b4d054136e5d59ada6ec9c295d7a/uploads/2025/03/2025031399.pdf",
+      "status": "inspected_selected_passages",
+      "fields_or_content": [
+        "scrutiny/re-scrutiny terminology",
+        "EVC process",
+        "application processing-stage table"
+      ],
+      "licence_access": "Public PDF readable; no general redistribution licence verified. Source linked, not bundled.",
+      "intended_use": "Terminology and future authorized rule-validation checklist",
+      "limitations": "Not operational data; selected clauses only; current addenda/circulars still require verification",
+      "checked_on": "2026-10-25",
+      "source_type": "public_reference",
+      "imported_into_operational_data": false
+    },
+    {
+      "source_id": "REF-ADDENDUM",
+      "name": "AICTE 2026-27 addendum",
+      "url": "https://aicte.gov.in/downloads/aph/Final%20Addendum%202026-27.pdf",
+      "status": "official_search_listing_found_direct_fetch_403",
+      "fields_or_content": [],
+      "licence_access": "Document body unavailable through direct fetch; permission/licence not verified",
+      "intended_use": "Pending policy review; not encoded into demonstrated rules",
+      "limitations": "No claim to have read or implemented its changes",
+      "checked_on": "2026-10-25",
+      "source_type": "public_reference",
+      "imported_into_operational_data": false
+    },
+    {
+      "source_id": "REF-GOA-AISHE",
+      "name": "Goa DHE AISHE college list",
+      "url": "https://dhe.goa.gov.in/resource/getResource/%201%20128/",
+      "status": "pdf_inspected",
+      "fields_or_content": [
+        "college name",
+        "AISHE code",
+        "district"
+      ],
+      "licence_access": "Publicly readable; copyrighted site; open bulk reuse licence not verified. Terms https://dhe.goa.gov.in/resource/getPage/disclaimer",
+      "intended_use": "Optional historical identity-format reference only; not imported",
+      "limitations": "PDF generated 16 October 2020; not current approval status. Contact fields intentionally excluded",
+      "checked_on": "2026-10-25",
+      "source_type": "public_reference",
+      "imported_into_operational_data": false
+    },
+    {
+      "source_id": "REF-AISHE-REPORTS",
+      "name": "AISHE final-report index",
+      "url": "https://aishe.gov.in/aishe-final-report/",
+      "status": "index_inspected_workbooks_not_inspected",
+      "fields_or_content": [
+        "links labelled 2023-24 and 2022-23 reports and Excel"
+      ],
+      "licence_access": "https://aishe.gov.in/website-policies/ distinguishes downloading from permission for reproduction/other uses",
+      "intended_use": "Optional background reference after table and reuse checks",
+      "limitations": "No operational actions, deadline labels or institution-case histories verified",
+      "checked_on": "2026-10-25",
+      "source_type": "public_reference",
+      "imported_into_operational_data": false
+    },
+    {
+      "source_id": "REF-AICTE-DASHBOARD",
+      "name": "AICTE approved-institution dashboard",
+      "url": "https://facilities.aicte-india.org/dashboard/pages/angulardashboard.php#!/approved",
+      "status": "direct_fetch_timed_out",
+      "fields_or_content": [],
+      "licence_access": "Row schema, export/API access and reuse licence not verified",
+      "intended_use": "Potential future reference lookup; not used at runtime",
+      "limitations": "Not an implemented integration or source of actual case records",
+      "checked_on": "2026-10-25",
+      "source_type": "public_reference",
+      "imported_into_operational_data": false
+    }
+  ]
+}

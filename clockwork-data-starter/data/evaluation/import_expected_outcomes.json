@@ -1,0 +1,86 @@
+[
+  {
+    "record_id": "IMPORT-001",
+    "expected_outcome": "accepted",
+    "rationale": "Whitespace and casing normalize without guessing identity",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-002",
+    "expected_outcome": "skipped_duplicate",
+    "rationale": "Exact repeat is idempotent",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-003",
+    "expected_outcome": "quarantined",
+    "rationale": "Same submission key, changed content needs review",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-004",
+    "expected_outcome": "quarantined",
+    "rationale": "Similar name is insufficient to infer institution ID",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-005",
+    "expected_outcome": "quarantined",
+    "rationale": "Missing due date must not silently become today",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-006",
+    "expected_outcome": "quarantined",
+    "rationale": "Missing owner must not route to arbitrary official",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-007",
+    "expected_outcome": "quarantined",
+    "rationale": "Timezone is mandatory",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-008",
+    "expected_outcome": "accepted",
+    "rationale": "Similar names with different IDs remain separate",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-009",
+    "expected_outcome": "accepted",
+    "rationale": "Same institution may submit different legitimate requests",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-010",
+    "expected_outcome": "quarantined",
+    "rationale": "Expiry precedes issue date",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-011",
+    "expected_outcome": "quarantined",
+    "rationale": "Unknown identifier cannot be guessed",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  },
+  {
+    "record_id": "IMPORT-012",
+    "expected_outcome": "quarantined",
+    "rationale": "EVC is not on a scrutiny-only route",
+    "label_source": "assistant_authored_demo_specification",
+    "review_status": "student_team_review_pending"
+  }
+]
