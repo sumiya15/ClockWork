@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+
+repo_root="$(git rev-parse --show-toplevel)"
+if command -v gitleaks >/dev/null 2>&1; then
+  exec gitleaks --redact --no-banner protect --staged
+fi
+if command -v powershell.exe >/dev/null 2>&1; then
+  exec powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$repo_root/scripts/security_hook.ps1" -Mode pre-commit
+fi
+
+echo "Gitleaks is required. Install it, then run scripts/install_security_hooks.ps1." >&2
+exit 1

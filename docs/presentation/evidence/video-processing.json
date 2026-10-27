@@ -1,0 +1,7 @@
+{
+  "sourceDuration": 189.96,
+  "startTrimSeconds": 0.28,
+  "requestedDuration": 180,
+  "method": "Decode source video to locate first rendered Today frame; trim blank startup and closing tail, re-encode actual interaction as VP9. No slides or reconstructed states.",
+  "audio": "Silent; no microphone audio captured"
+}

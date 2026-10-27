@@ -1,0 +1,14 @@
+[
+  {
+    "name": "current-prototype",
+    "width": 3840,
+    "height": 2160,
+    "textOutsideCanvas": []
+  },
+  {
+    "name": "target-system",
+    "width": 3840,
+    "height": 2160,
+    "textOutsideCanvas": []
+  }
+]

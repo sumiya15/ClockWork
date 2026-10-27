@@ -118,3 +118,56 @@ The mobile navigation, data population, record consistency and screenshot-readin
 gaps identified in the earlier presentation interface were fixed in this run.
 Production security, audit consistency, real storage and integration remain a
 separate engineering phase. No backend work was restarted.
+
+
+## Latest verified enhancement: institutions and simulated assistant
+
+The final mobile frontend is ready for **prototype PPT screenshots and a rehearsed recording**, within the stated simulation boundaries. The official problem statement and submission deck remain unavailable, so this is not certification against official SIH requirements or a production-readiness claim.
+
+### New requirement-to-evidence mapping
+
+| Requirement | Implemented action/screen | Actual evidence |
+|---|---|---|
+| Institution imagery and relationships | More > Institutions; case thumbnail and overview; linked application/requirements | Local images load, failure fallback works, correct Cedar record opens; 360/390/430 layout tests pass |
+| Case-aware assistant | More > AI Assist and Case Overview | Six-case deterministic unit comparison; cross-scope refusal; browser case switch changes facts and clears stale output |
+| Summary, pending and next steps | Suggested questions | Current case fields/register references; no invented results; missing dates/stages return unavailable |
+| Reminder/deficiency drafts | Assistant response and Copy | Review-only wording; missing deficiency remains an officer placeholder; clipboard and manual fallback tested; no sending/approval action |
+| Unknown/input/error states | Question input, loading, Retry | Invalid/oversized questions tested; blank question retry and loading verified in browser |
+| Modern mobile layout | Existing navy/blue/emerald React UI and SVG system | All five browser journeys pass, including three widths, keyboard sheet/focus, no console/runtime errors or API requests |
+| Presentation captures | Five new images 11-15 and refreshed workflow images 01-10 | Real 390x844 browser captures, inspected after tests; no generated fake screenshots or device frames |
+
+Implemented: scoped institution/profile navigation, small original local campus illustrations, deterministic assistant adapter, record citations, review-only drafts, loading/error/retry/copy, all existing workflows and exports. Simulated: personas, local uploads/messages/approvals and AI preview. Future: a real provider through FastAPI, backend authorization before record retrieval, verified versioned policy excerpts, backend-only secrets, human confirmation and evaluations. ASSISTANT_DESIGN.md details this separate path. No vector search, agents, OCR, model SDK or extra UI framework was installed.
+
+The current asset exception is explicit: Wikimedia Commons source/licensing pages were reviewed and CC0 candidates identified, but download attempts returned HTTP 429. No photograph was included or hotlinked. The original SVG placeholders are labeled fictional/illustrative; IMAGE_ATTRIBUTION.md records the reviewed URLs, authors/licenses, failed retrieval and actual included asset provenance. The institution screenshot is therefore an illustration rather than a campus photograph.
+
+Disk recovery required no archive or database deletion in this run: about 277 MB was available at start. ui.jsx was intact. Fixed a favicon 404, modal keyboard-focus restoration, missing-date assistant output, and screenshot positioning so the simulated-preview label remains visible. Lint/build and 13 unit tests pass. The final full browser suite passes with a separately managed local Vite server; the former Windows managed-server teardown hang is documented with reproducible commands. No new backend work was performed.
+
+Remaining gaps are the earlier ranked blueprint gaps and missing official reference pack. The assistant is an additional presentation capability, not a newly asserted official SIH criterion. Real campus photos remain optional replacement work once a licensed download succeeds. No real model is running, no messages leave the browser, and no statutory approval is issued.
+
+Final recorded results: 13 service/unit tests passed; full browser suite 5 passed in 41.0s with a clean exit; focused month-label and actual image-decoding fallback checks passed; final sequential capture 2 passed in 16.4s. All 15 PNG dimensions were verified and images visually inspected; new requested captures are 11-dashboard-assist.png through 15-ai-reminder-draft.png under docs/screenshots/mobile. No console/runtime error or unexpected backend request was reported. Edge emulation covered 360/390/430px; physical-device testing and a narrated recording remain outside these completed checks.
+
+## Photographic layer update (supersedes the earlier photo-retrieval limitation)
+
+The focused update successfully obtained four real photographs from Pexels, under its license, without retrying the blocked Wikimedia source. Local optimized JPEGs cover campus, laboratory equipment, classroom and library; attribution, original pages, license URL, byte sizes and SHA-256 values are in IMAGE_ATTRIBUTION.md. Today has a compact photo banner; institution cards and covers show campus photographs; selected EVC details show the facilities gallery. Every photo context is marked illustrative/fictional, and the gallery explicitly is not verified inspection evidence. These are presentation assets, not new claims about an institution's actual facilities. Existing SVG fallback, workflows, simulated assistant and backend are preserved. No dependency, model or inspection-evidence storage was introduced.
+
+A dedicated browser check loads all four local images, blocks all external HTTP requests, checks three widths, navigates from institution cards into profiles, and exercises an actual corrupt-image fallback. Updated screenshot locations are recorded in FRONTEND_DEMO.md and final results in PROJECT_STATUS.md. Official SIH references remain unavailable; photography changes do not alter the prior implemented/simulated/future boundaries.
+
+Final photo-update evidence: six browser tests passed in 37.3s with no console/runtime errors or backend requests; external-network-blocked image test passed, as did 360/390/430 layouts and corrupted-image fallback. Lint/build passed. The four real JPEGs are present in both public/photos and the production build, verified by checksum. All 18 refreshed 390x844 PNGs are delivered; photo-specific screenshots are 16, 17, 12, 13 and 18. The photographic presentation layer is ready within the existing prototype/simulation boundaries.
+
+## Compact cards and visible AI Assist (2026-10-25)
+
+Today, Cases and Institutions now use stable institution-ID colors and initials, case/Region/stage, deadline, owner and next-step labels. Photos remain only on the featured INST-2 profile and the EVC facilities gallery; other profiles have initials covers. These changes do not migrate or reset saved data.
+
+Recording sequence: reset workspace, open Today, select the AI Assist card. It selects an overdue EVC case with a recorded committee in the current scope (falling back to another visible case). Choose **Summarize this case**, then **What is blocking progress?**. Read the recorded deadline and assigned committee; the cause of delay is explicitly unavailable unless recorded. Choose **Draft a reminder**, review the text, Copy draft, and use the suggested action to open the linked EVC entry. No message is sent. Changing the selected case clears the prior response and links. Retry response regenerates from that case's current records. Case Details exposes AI Assist across every section; More also retains its entry.
+
+The assistant remains a **Simulated AI preview**, using deterministic local record responses with supporting facts, scoped clickable references and navigation-only suggestions. No model, API key, backend call, policy invention or automated decision was added. Real integration remains future work as documented in ASSISTANT_DESIGN.md.
+
+Current screenshots: 19-today-compact-cards.png, 20-compact-institution-cards.png, 12-institution-profile.png, 21-ai-evc-summary.png, 22-ai-evc-blockers.png and 23-ai-evc-reminder.png under docs/screenshots/mobile/. Earlier 16/17 photo-list captures are superseded, retained as historical artifacts.
+
+## Presentation wording polish (2026-10-25)
+
+Primary alert content now shows a readable deadline status, overdue/remaining days and next action. Historical alerts use their recorded deadline and scan date, not today's current record. Full rule/threshold references remain in expandable **Why this alert?** details. Recipient labels use Institution document coordinator; timeline update counts use singular/plural correctly. Case elapsed time no longer leads with a rule version. Communications, activity, reports and assistant dates use readable dates; encoded spaces are normalized at presentation boundaries without rewriting stored records.
+
+AI Assist has a compact **AI preview** label and an **About AI preview** information button. Its keyboard-accessible dialog explains sample-record responses, no live model, draft review and simulated messages/approvals. A small shared **Demo** badge remains visible. More > **About this demo** collects imagery, rule, local-storage and simulation explanations. Photos retain short not-inspection-evidence captions; uploads still explicitly say files are not uploaded. Copy uses the same polished text shown on screen.
+
+Verified: lint/build passed; 8 assistant/wording unit tests passed; all 8 Playwright browser checks passed in 46.1 seconds (workflows, persona/filter scopes, persistence/reset, 360/390/430 layouts, clipboard/fallback, image fallback, information dialog and detailed alert explanations). Console/API diagnostics passed. Refreshed 390x844 captures in docs/screenshots/mobile/, including 09-notifications, 12-institution-profile, 14/15 AI responses and 19-23 compact cards/EVC assistant. Notification and AI summary captures visually inspected. No backend, dependency, workflow or stored-data migration changes.

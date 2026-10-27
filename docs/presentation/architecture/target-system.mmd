@@ -1,0 +1,28 @@
+flowchart LR
+ Users["Institution / Regional officer / Bureau officer / Committee / Admin"]
+ UI["React mobile interface<br/>Human review actions"]
+ subgraph API["FastAPI"]
+ Auth["Existing auth and scoped reads<br/>Cookie sessions, CSRF, scope"]
+ Ops["Incomplete operational services<br/>Applications, EVC, undertakings, documents, reports<br/>Human verification and final decisions"]
+ Auth -.->|Authorised operations| Ops
+ end
+ Engine["Shared engine — incomplete<br/>Published rules, transitions, SLA pause/resume<br/>Deadline evaluation and escalation"]
+ Worker["Proposed worker<br/>Scheduled scans, outbox delivery, retries"]
+ Mongo["Existing MongoDB / audit / outbox foundation<br/>Domain persistence incomplete"]
+ Files["Proposed protected document storage"]
+ Adapters["Proposed adapters<br/>Authorised AICTE systems / notification providers"]
+ AI["Future backend AI endpoint<br/>Scoped facts and human review"]
+ Users -->|Use| UI
+ UI -.->|HTTPS| Auth
+ Ops -.->|Rules and transitions| Engine
+ Worker -.->|Run deadline evaluation| Engine
+ Worker -.->|Send| Adapters
+ Adapters -.->|Authorised data exchange| Ops
+ Ops -.->|Read / write and audit| Mongo
+ Worker -.->|Outbox / results| Mongo
+ Ops -.->|Verified evidence reference| Files
+ Ops -.->|Scoped request| AI
+ classDef current fill:#e8f3ec,stroke:#146347,color:#24332c;
+ classDef proposed fill:#fff,stroke:#5b8770,color:#24332c,stroke-dasharray:8 5;
+ class Users,UI,Auth,Mongo current;
+ class Ops,Engine,Worker,Files,Adapters,AI proposed;

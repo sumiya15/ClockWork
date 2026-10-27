@@ -1,0 +1,2 @@
+# Versioned security scanner used by local and GitHub dependency checks.
+pip-audit==2.10.1

@@ -1,0 +1,15 @@
+# Generated output only: preserve normal Linguist detection for genuine source.
+**/node_modules/** linguist-vendored
+**/.venv/** linguist-vendored
+**/__pycache__/** linguist-generated
+frontend/dist/** linguist-generated
+**/test-results/** linguist-generated
+**/playwright-report/** linguist-generated
+**/coverage/** linguist-generated
+# Retained presentation exports and recorded run artifacts.
+docs/presentation/evidence/** linguist-generated
+docs/presentation/architecture/*.svg linguist-generated
+docs/screenshots/** linguist-generated
+# Synthetic generated datasets; generators and reference engine remain source.
+clockwork-data-starter/data/** linguist-generated
+clockwork-data-starter/example/** linguist-generated

@@ -81,3 +81,7 @@ User replaced the immediate Phase 2 goal with a frontend-only presentation. Add 
 ## Completed frontend continuation
 The untruncated frontend requirements now use a version-2 local snapshot. The v1 snapshot is retained and upgraded additively; no backend schema or data migration. Explicit Reset Demo initializes the deterministic new presentation. Use VITE_APP_MODE=api for the preserved backend interface. Full behavior and rollback-by-mode-switch are documented in FRONTEND_DEMO.md. Do not infer production Phase 2 completion from the local workflow.
 
+
+## Mobile presentation v3
+The frontend-only mobile continuation preserves backend/API mode and original dependency metadata. v3 retains earlier saved snapshots and offers explicit Reset Demo for the new 60-case/120-register seed. Earlier localStorage keys are untouched. No database or production migration. SIH_DEMO_REVIEW.md records inspected sources and missing official references.
+

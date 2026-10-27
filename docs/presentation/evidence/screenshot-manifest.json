@@ -1,0 +1,140 @@
+[
+  {
+    "file": "01-today.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "ce1b1a12402686db78e5ef63c420daa3665910e720fa4e2beaa9660ce372ae8d"
+  },
+  {
+    "file": "01b-today-actions.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "554241f69a3713f550b158692ebf280f5c48770a60060eaa322315106c05d14e"
+  },
+  {
+    "file": "02-dashboard.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "67d6b1a0b493cc4ab8fe89c0543eaa86f00b654f3185a16b6f8a5d646b75aaaf"
+  },
+  {
+    "file": "02b-workload.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "9ed6afc22f204fab722340507dcbb4809bc826fa6fad6993a473636f716efce9"
+  },
+  {
+    "file": "03-case-paused.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "a80b466b57fefc17fe303d507f863d062e5806a972e039cf4ae21bd676fca364"
+  },
+  {
+    "file": "03b-case-resumed.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "d655b9f3e1ac583898331f9849bf5f97998af585a4c415d475532a223da1ca55"
+  },
+  {
+    "file": "03c-case-route.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "99e4819489d891f6a0d78fd8883fc05948b45e3eb5ede38b35cab30f08134842"
+  },
+  {
+    "file": "04-evc.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "9533751c31e28c9d2e506c14f9257329151be37ed748a0389b3d3656fdc03c21"
+  },
+  {
+    "file": "04b-evc-new-institutions.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "3c430a5103c4a433c9ce0432769c0da93de7efa5b7cdaf77916f8a8b99ace740"
+  },
+  {
+    "file": "05-escalation.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "c70e489a6bc1e4c244a3cc885259f0ce429ef417b97165114529f4dc5c247b5e"
+  },
+  {
+    "file": "05b-alert-explanation.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "8be6b28c622400015c911af1ac49e3256b9077e6bd0338e363f83863f1f66bfa"
+  },
+  {
+    "file": "06-undertaking-pending.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "e3fb3e6fcab2691cfb0e4c28466c0b9753298ca60f716db087f1eb2cc48c2bf5"
+  },
+  {
+    "file": "06b-undertaking-verified.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "994a57eb2c3fdb482f75d19ec1c598d0ef1faa0c8b69e5102a338463a7931f71"
+  },
+  {
+    "file": "07-lease-pending.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "94adea508a024e1c71fe775a36d483ba86cdfca86fb7b4e172264cb7536ece44"
+  },
+  {
+    "file": "07b-lease-history.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "3c9d3064e5bf2261acc13d15fe38d2231c63fa14facc6db4c6aa25a111295676"
+  },
+  {
+    "file": "08-reports.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "ed3ac2305d5da82c8f50d260fdbb2d91f0358de7e7dd4bf702cbee08d8046675"
+  },
+  {
+    "file": "08b-history.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "69dec960d5624ab19795308217e2cecc395910766301c688db7ddd7527659c6a"
+  },
+  {
+    "file": "09-compact-cases.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "9a251e5aef07c66a9d4997b6ac962909db27c6919470d0c7d7fc0b430340c78c"
+  },
+  {
+    "file": "10-institution-profile.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "0da32d6fc81907d08b19beebe1705e43dccdb99157c5f4d9da4d1fb13d264f91"
+  },
+  {
+    "file": "11-ai-summary.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "72496192def334a7de936f8a6cf0f54d8eb18e80dd66684328d23a35053b0a8d"
+  },
+  {
+    "file": "12-ai-blockers.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "ecee19f6211d82c97384f57d3e0aa596c2acb3387a20da6cb6404d29f530bcc3"
+  },
+  {
+    "file": "13-ai-reminder.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "662768d7cfc6e85cd25037b1eb2b946c7ec680cfa94e8fd0794577273eef5468"
+  },
+  {
+    "file": "14-about-prototype.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "5d8a99a3fd453f19b87f382aaef1a0bbcfd10e97e4804e1cecb960e3d46bdf26"
+  }
+]

@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-26",
+  "method": "Direct production frontend functions with assertions; fresh independent synthetic seed per scenario.",
+  "dataset": {
+    "applications": 60,
+    "institutions": 60,
+    "regions": 4,
+    "undertakings": 60,
+    "leases": 60,
+    "evc": 36
+  },
+  "routes": [
+    {
+      "route": "Only Scrutiny",
+      "observed": [
+        "Scrutiny",
+        "Human decision"
+      ],
+      "terminal": "Awaiting human decision; no approval issued"
+    },
+    {
+      "route": "Scrutiny + EVC",
+      "observed": [
+        "Scrutiny",
+        "EVC scheduling",
+        "EVC visit",
+        "EVC report",
+        "Human decision"
+      ],
+      "terminal": "Awaiting human decision; no approval issued"
+    },
+    {
+      "route": "EVC + SAC/SHC",
+      "observed": [
+        "EVC scheduling",
+        "EVC visit",
+        "EVC report",
+        "SAC/SHC",
+        "Human decision"
+      ],
+      "terminal": "Awaiting human decision; no approval issued"
+    },
+    {
+      "route": "Only EVC",
+      "observed": [
+        "EVC scheduling",
+        "EVC visit",
+        "EVC report",
+        "Human decision"
+      ],
+      "terminal": "Awaiting human decision; no approval issued"
+    }
+  ],
+  "deadlines": [
+    {
+      "advanceDays": 0,
+      "date": "2026-10-25",
+      "activeTargets": 152,
+      "overdue": 63,
+      "dueToday": 1,
+      "upcoming7Days": 35,
+      "reportMatches": true,
+      "eligibleTargetsHaveAlerts": true,
+      "openApplicationOverdue": 25
+    },
+    {
+      "advanceDays": 1,
+      "date": "2026-10-26",
+      "activeTargets": 152,
+      "overdue": 64,
+      "dueToday": 0,
+      "upcoming7Days": 35,
+      "reportMatches": true,
+      "eligibleTargetsHaveAlerts": true,
+      "openApplicationOverdue": 26
+    },
+    {
+      "advanceDays": 7,
+      "date": "2026-11-01",
+      "activeTargets": 152,
+      "overdue": 98,
+      "dueToday": 1,
+      "upcoming7Days": 6,
+      "reportMatches": true,
+      "eligibleTargetsHaveAlerts": true,
+      "openApplicationOverdue": 44
+    },
+    {
+      "advanceDays": 30,
+      "date": "2026-11-24",
+      "activeTargets": 152,
+      "overdue": 129,
+      "dueToday": 0,
+      "upcoming7Days": 0,
+      "reportMatches": true,
+      "eligibleTargetsHaveAlerts": true,
+      "openApplicationOverdue": 50
+    }
+  ],
+  "duplicates": {
+    "messages": 669,
+    "repeatedScans": 5,
+    "added": 0,
+    "duplicateIds": 0
+  },
+  "escalationRecipients": "All generated overdue application and compliance alerts match the displayed authority ladder.",
+  "sla": {
+    "initial": {
+      "remaining": 5,
+      "activeElapsed": 9
+    },
+    "after": {
+      "remaining": 5,
+      "activeElapsed": 9,
+      "pausedDays": 14,
+      "resubmissions": 2
+    }
+  },
+  "evidence": [
+    {
+      "id": "REG-DEMO-U",
+      "pending": {
+        "state": "Evidence submitted",
+        "validity": "Pending",
+        "expiry": null
+      },
+      "verified": {
+        "state": "Verified",
+        "validity": "Compliant",
+        "expiry": null,
+        "history": 0
+      }
+    },
+    {
+      "id": "REG-DEMO-L",
+      "pending": {
+        "state": "Evidence submitted",
+        "validity": "Expired",
+        "expiry": "2026-10-23"
+      },
+      "verified": {
+        "state": "Verified",
+        "validity": "Valid",
+        "expiry": "2027-10-25",
+        "history": 1
+      }
+    }
+  ],
+  "reports": [
+    {
+      "type": "pendency",
+      "rows": 52
+    },
+    {
+      "type": "evc",
+      "rows": 36
+    },
+    {
+      "type": "undertakings",
+      "rows": 60
+    },
+    {
+      "type": "documents",
+      "rows": 60
+    },
+    {
+      "type": "overdue",
+      "rows": 65
+    },
+    {
+      "type": "performance",
+      "rows": 24
+    }
+  ],
+  "limitations": [
+    "Synthetic functional scenarios, not production accuracy or time-savings measurement.",
+    "Four route tests reset one seeded case to each initial stage; browser presentation journey exercises Scrutiny + EVC.",
+    "No backend, file bytes, communications delivery or official APH verification.",
+    "Reminder evaluation coalesces crossed milestones per target/channel; repeated scans are measured at fixed time."
+  ]
+}

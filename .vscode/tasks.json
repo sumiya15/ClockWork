@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "ClockWork: Auto-push to GitHub",
+      "label": "ClockWork: Security scan",
       "type": "process",
       "command": "powershell.exe",
       "args": [
@@ -10,12 +10,8 @@
         "-ExecutionPolicy",
         "Bypass",
         "-File",
-        "${workspaceFolder}\\scripts\\auto_push.ps1"
+        "${workspaceFolder}\\scripts\\security_scan.ps1"
       ],
-      "runOptions": {
-        "runOn": "folderOpen"
-      },
-      "isBackground": true,
       "problemMatcher": []
     }
   ]

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>ClockWork | Architecture walkthrough</title>
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body>
+  <main id="presentation" aria-label="ClockWork architecture presentation">
+    <header>
+      <div><p class="eyebrow">SIH 26262 · Architecture walkthrough</p><h1>ClockWork<span>One workflow. Accountable decisions.</span></h1></div>
+      <div class="tools" aria-label="Presentation controls">
+        <button id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-label" aria-label="Zoom level">100%</output><button id="zoom-in" aria-label="Zoom in">+</button>
+        <button id="reset">Reset</button><button id="fullscreen">Fullscreen</button>
+      </div>
+    </header>
+    <nav class="view-bar" aria-label="Architecture views">
+      <div class="view-tabs"><button data-view="target" aria-pressed="true">Target architecture</button></div>
+      <p id="view-caption">Target architecture · secure workflows, accountable decisions and connected services</p>
+    </nav>
+    <div class="workspace">
+      <div id="diagram-viewport" aria-label="Architecture diagram"><div id="diagram"></div></div>
+      <aside id="explanation" aria-live="polite" aria-atomic="true">
+        <div class="panel-top"><span id="explanation-status" class="status design">Target design</span><button id="unpin" hidden>Unpin</button></div>
+        <p class="eyebrow" id="explanation-group"></p><h2 id="explanation-title"></h2>
+        <p id="explanation-body"></p><div class="human-note"><b id="note-label">Human oversight</b><p id="explanation-note"></p></div>
+        <p class="source-label">Design focus</p><p id="explanation-source"></p><p id="interaction-hint">Hover to explore · click to pin</p>
+      </aside>
+    </div>
+    <footer>
+      <div class="legend" aria-label="Architecture context"><span><i class="implemented"></i>Target system design</span><small>Human verification at decision gates</small></div>
+      <div class="sequence"><button id="previous" aria-label="Previous presentation step">← Previous</button><div id="steps" aria-label="Numbered presentation steps"></div><button id="next" aria-label="Next presentation step">Next →</button></div>
+      <p class="footer-note"><span id="step-label"></span><span>Arrow keys: steps · Esc: unpin · + / −: zoom · R: reset · drag diagram when zoomed</span></p>
+    </footer>
+    <div id="message" role="status"></div>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>
