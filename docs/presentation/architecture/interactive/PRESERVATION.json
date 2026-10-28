@@ -1,0 +1,12 @@
+{
+  "checkedFiles": 114,
+  "changed": [],
+  "missing": [],
+  "scope": [
+    "frontend/src",
+    "backend",
+    "data",
+    "docs/presentation/video"
+  ],
+  "videoCreatedOrModified": false
+}

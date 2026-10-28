@@ -1,0 +1,366 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "chapters": [
+    {
+      "label": "Priority actions",
+      "seconds": 0.089
+    },
+    {
+      "label": "Dashboard filters",
+      "seconds": 0.202
+    },
+    {
+      "label": "Return and SLA",
+      "seconds": 0.554
+    },
+    {
+      "label": "Paused clock advance",
+      "seconds": 1.001
+    },
+    {
+      "label": "Institution resubmission",
+      "seconds": 1.378
+    },
+    {
+      "label": "Configured route",
+      "seconds": 1.751
+    },
+    {
+      "label": "EVC and escalation",
+      "seconds": 2.071
+    },
+    {
+      "label": "Advance to EVC breach",
+      "seconds": 2.391
+    },
+    {
+      "label": "Evidence and renewal",
+      "seconds": 3.587
+    },
+    {
+      "label": "Officer verifies undertaking",
+      "seconds": 4.18
+    },
+    {
+      "label": "Lease renewal submission",
+      "seconds": 4.35
+    },
+    {
+      "label": "Officer verifies renewal",
+      "seconds": 4.932
+    },
+    {
+      "label": "Reports and history",
+      "seconds": 5.146
+    },
+    {
+      "label": "Shared engine and limitations",
+      "seconds": 7.103
+    },
+    {
+      "label": "Closing Today",
+      "seconds": 7.13
+    },
+    {
+      "label": "End",
+      "seconds": 7.161
+    }
+  ],
+  "errors": [],
+  "apiRequests": [],
+  "finalDate": "2026-12-01",
+  "notifications": 900,
+  "repeatScanAdded": 0,
+  "case": {
+    "id": "CW-2026-002",
+    "institutionId": "INST-2",
+    "institution": "Cedar Technical Institute",
+    "region": "South",
+    "type": "Existing institution",
+    "contactEmail": "approvals.inst2@example.org",
+    "route": "Scrutiny + EVC",
+    "stage": "EVC visit",
+    "owner": "South EVC Committee",
+    "due": "2026-11-02",
+    "submitted": "2026-10-16",
+    "status": "In progress",
+    "reason": "",
+    "history": [
+      {
+        "title": "Application received",
+        "detail": "Fictional existing institution application entered on Scrutiny + EVC.",
+        "date": "2026-10-16",
+        "actor": "Institution (seeded demo)"
+      },
+      {
+        "id": "ACT-2",
+        "applicationId": "CW-2026-002",
+        "title": "Demo reminder recorded",
+        "detail": "DEMO-CW v1: Scrutiny: Cedar Technical Institute; due 2026-10-30; -5 days after due on 2026-10-25; crossed 7 days before due. 1 milestone(s) recorded; one message per simulated channel.",
+        "date": "2026-10-25",
+        "realAt": "2026-10-26T08:49:41.532Z",
+        "actor": "bureau / all Regions"
+      },
+      {
+        "id": "ACT-44",
+        "applicationId": "CW-2026-002",
+        "title": "Demo reminder recorded",
+        "detail": "DEMO-CW v1: Cedar laboratory equipment undertaking; due 2026-11-01; -7 days after due on 2026-10-25; crossed 7 days before due. 1 milestone(s) recorded; one message per simulated channel.",
+        "date": "2026-10-25",
+        "realAt": "2026-10-26T08:49:41.536Z",
+        "actor": "bureau / all Regions"
+      },
+      {
+        "id": "ACT-45",
+        "applicationId": "CW-2026-002",
+        "title": "Demo escalation recorded",
+        "detail": "DEMO-CW v1: Cedar campus lease renewal; due 2026-10-23; 2 days after due on 2026-10-25; crossed 1 days after due. 4 milestone(s) recorded; one message per simulated channel.",
+        "date": "2026-10-25",
+        "realAt": "2026-10-26T08:49:41.536Z",
+        "actor": "bureau / all Regions"
+      },
+      {
+        "id": "ACT-100",
+        "applicationId": "CW-2026-002",
+        "title": "Returned for clarification",
+        "detail": "Clarify laboratory equipment capacity. Configured SLA paused.",
+        "date": "2026-10-25",
+        "realAt": "2026-10-26T08:49:42.520Z",
+        "actor": "regional / South"
+      },
+      {
+        "id": "ACT-145",
+        "applicationId": "CW-2026-002",
+        "title": "Demo reminder recorded",
+        "detail": "DEMO-CW v1: Cedar laboratory equipment undertaking; due 2026-11-01; 0 days after due on 2026-11-01; crossed 0 days after due. 2 milestone(s) recorded; one message per simulated channel.",
+        "date": "2026-11-01",
+        "realAt": "2026-10-26T08:49:42.907Z",
+        "actor": "bureau / all Regions"
+      },
+      {
+        "id": "ACT-146",
+        "applicationId": "CW-2026-002",
+        "title": "Demo escalation recorded",
+        "detail": "DEMO-CW v1: Cedar campus lease renewal; due 2026-10-23; 9 days after due on 2026-11-01; crossed 7 days after due. 1 milestone(s) recorded; one message per simulated channel.",
+        "date": "2026-11-01",
+        "realAt": "2026-10-26T08:49:42.907Z",
+        "actor": "bureau / all Regions"
+      },
+      {
+        "id": "ACT-201",
+        "applicationId": "CW-2026-002",
+        "title": "Institution resubmitted",
+        "detail": "Equipment capacity clarified. Attempt 1; remaining SLA preserved.",
+        "date": "2026-11-01",
+        "realAt": "2026-10-26T08:49:43.271Z",
+        "actor": "institution / INST-2"
+      },
+      {
+        "id": "ACT-202",
+        "applicationId": "CW-2026-002",
+        "title": "Scrutiny completed",
+        "detail": "Scrutiny checklist reviewed.",
+        "date": "2026-11-01",
+        "realAt": "2026-10-26T08:49:43.700Z",
+        "actor": "regional / South"
+      },
+      {
+        "id": "ACT-203",
+        "applicationId": "CW-2026-002",
+        "title": "EVC scheduled",
+        "detail": "Committee availability confirmed. South EVC Committee; visit 2026-11-02.",
+        "date": "2026-11-01",
+        "realAt": "2026-10-26T08:49:43.911Z",
+        "actor": "regional / South"
+      },
+      {
+        "id": "ACT-206",
+        "applicationId": "CW-2026-002",
+        "title": "Demo escalation recorded",
+        "detail": "DEMO-CW v1: EVC visit: Cedar Technical Institute; due 2026-11-02; 29 days after due on 2026-12-01; crossed 14 days after due. 6 milestone(s) recorded; one message per simulated channel.",
+        "date": "2026-12-01",
+        "realAt": "2026-10-26T08:49:44.303Z",
+        "actor": "bureau / all Regions"
+      },
+      {
+        "id": "ACT-239",
+        "applicationId": "CW-2026-002",
+        "title": "Demo escalation recorded",
+        "detail": "DEMO-CW v1: Cedar laboratory equipment undertaking; due 2026-11-01; 30 days after due on 2026-12-01; crossed 14 days after due. 3 milestone(s) recorded; one message per simulated channel.",
+        "date": "2026-12-01",
+        "realAt": "2026-10-26T08:49:44.310Z",
+        "actor": "bureau / all Regions"
+      },
+      {
+        "id": "ACT-240",
+        "applicationId": "CW-2026-002",
+        "title": "Demo escalation recorded",
+        "detail": "DEMO-CW v1: Cedar campus lease renewal; due 2026-10-23; 39 days after due on 2026-12-01; crossed 14 days after due. 1 milestone(s) recorded; one message per simulated channel.",
+        "date": "2026-12-01",
+        "realAt": "2026-10-26T08:49:44.310Z",
+        "actor": "bureau / all Regions"
+      },
+      {
+        "id": "ACT-307",
+        "applicationId": "CW-2026-002",
+        "title": "Evidence submitted",
+        "detail": "REG-DEMO-U: Fictional evidence supplied for officer review.. Filename metadata only; officer verification pending.",
+        "date": "2026-12-01",
+        "realAt": "2026-10-26T08:49:45.518Z",
+        "actor": "institution-link / INST-2 (simulated)"
+      },
+      {
+        "id": "ACT-308",
+        "applicationId": "CW-2026-002",
+        "title": "Evidence verified",
+        "detail": "REG-DEMO-U: Undertaking evidence is complete.",
+        "date": "2026-12-01",
+        "realAt": "2026-10-26T08:49:45.883Z",
+        "actor": "bureau / all Regions"
+      },
+      {
+        "id": "ACT-309",
+        "applicationId": "CW-2026-002",
+        "title": "Evidence submitted",
+        "detail": "REG-DEMO-L: Fictional evidence supplied for officer review.. Filename metadata only; officer verification pending.",
+        "date": "2026-12-01",
+        "realAt": "2026-10-26T08:49:46.267Z",
+        "actor": "institution-link / INST-2 (simulated)"
+      },
+      {
+        "id": "ACT-310",
+        "applicationId": "CW-2026-002",
+        "title": "Evidence verified",
+        "detail": "REG-DEMO-L: Renewal dates verified.",
+        "date": "2026-12-01",
+        "realAt": "2026-10-26T08:49:46.634Z",
+        "actor": "bureau / all Regions"
+      }
+    ],
+    "version": 17,
+    "ruleVersion": 1,
+    "stageStarted": "2026-11-01",
+    "pausedAt": null,
+    "pausedDays": 0,
+    "pauseIntervals": [
+      {
+        "start": "2026-10-25",
+        "end": "2026-11-01",
+        "stage": "Scrutiny",
+        "reason": "Clarify laboratory equipment capacity."
+      }
+    ],
+    "attempts": 1,
+    "stageEpoch": 3,
+    "completedStages": [
+      {
+        "stage": "Scrutiny",
+        "completed": "2026-11-01",
+        "activeDays": 9,
+        "started": "2026-10-16"
+      },
+      {
+        "stage": "EVC scheduling",
+        "completed": "2026-11-01",
+        "activeDays": 0,
+        "started": "2026-11-01"
+      }
+    ],
+    "communications": [
+      {
+        "id": "ACK-CW-2026-002",
+        "template": "Acknowledgement v1",
+        "date": "2026-10-16",
+        "recipient": "approvals.inst2@example.org",
+        "text": "Application CW-2026-002 received for Scrutiny + EVC. Assigned to South Region. Fictional acknowledgement; not sent."
+      },
+      {
+        "id": "COMM-ACT-100",
+        "template": "Deficiency notice v1",
+        "date": "2026-10-25",
+        "recipient": "approvals.inst2@example.org",
+        "text": "CW-2026-002: Clarify laboratory equipment capacity. Configured SLA paused. Simulated communication; not sent."
+      },
+      {
+        "id": "COMM-ACT-201",
+        "template": "Resubmission acknowledgement v1",
+        "date": "2026-11-01",
+        "recipient": "approvals.inst2@example.org",
+        "text": "CW-2026-002: Equipment capacity clarified. Attempt 1; remaining SLA preserved. Simulated communication; not sent."
+      }
+    ]
+  },
+  "registers": [
+    {
+      "id": "REG-DEMO-U",
+      "applicationId": "CW-2026-002",
+      "kind": "Undertaking",
+      "title": "Cedar laboratory equipment undertaking",
+      "condition": "Submit the commissioned laboratory equipment inventory.",
+      "due": "2026-11-01",
+      "state": "Verified",
+      "filename": "fictional-evidence.pdf",
+      "ruleVersion": 1,
+      "issueDate": "2025-11-01",
+      "expiryDate": null,
+      "renewalHistory": [],
+      "submissions": [
+        {
+          "filename": "fictional-evidence.pdf",
+          "size": 24,
+          "submitted": "2026-12-01",
+          "reason": "Fictional evidence supplied for officer review.",
+          "issueDate": "2026-12-01",
+          "expiryDate": "2027-12-01",
+          "outcome": "Verified",
+          "decisionDate": "2026-12-01",
+          "decisionReason": "Undertaking evidence is complete.",
+          "actor": "bureau / all Regions"
+        }
+      ],
+      "revision": 1,
+      "pending": null,
+      "verifiedOn": "2026-12-01"
+    },
+    {
+      "id": "REG-DEMO-L",
+      "applicationId": "CW-2026-002",
+      "kind": "Lease validity",
+      "title": "Cedar campus lease renewal",
+      "condition": "Maintain verified campus occupancy documentation through the approval period.",
+      "due": "2027-12-01",
+      "state": "Verified",
+      "filename": "fictional-evidence.pdf",
+      "ruleVersion": 1,
+      "issueDate": "2026-12-01",
+      "expiryDate": "2027-12-01",
+      "renewalHistory": [
+        {
+          "issueDate": "2025-10-23",
+          "expiryDate": "2026-10-23",
+          "replacedOn": "2026-12-01"
+        }
+      ],
+      "submissions": [
+        {
+          "filename": "fictional-evidence.pdf",
+          "size": 24,
+          "submitted": "2026-12-01",
+          "reason": "Fictional evidence supplied for officer review.",
+          "issueDate": "2026-12-01",
+          "expiryDate": "2027-12-01",
+          "outcome": "Verified",
+          "decisionDate": "2026-12-01",
+          "decisionReason": "Renewal dates verified.",
+          "actor": "bureau / all Regions"
+        }
+      ],
+      "revision": 2,
+      "pending": null,
+      "verifiedOn": "2026-12-01"
+    }
+  ]
+}

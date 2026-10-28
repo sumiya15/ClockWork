@@ -1,6 +1,18 @@
+## Mobile presentation acceptance (not production readiness)
+
+- [x] 390x844 phone UI with 360px/430px verification; no decorative device frame.
+- [x] Navy/blue shared header, five bottom tabs, More tools and isolated demo controls.
+- [x] Mobile cards/filter sheets replace wide tables; bottom nav has reserved space.
+- [x] Complete workflow, SLA, EVC, evidence, rules, reports and notifications preserved.
+- [x] 60 linked fictional cases; all Regions/routes/personas/individual filters populated.
+- [x] Fixed seed date, v3 storage, old-data preservation/reset offer, view-state persistence.
+- [x] Mobile browser walkthrough and service tests pass; lint/build pass.
+- [x] Actual screenshots and blueprint-to-screen review documented.
+- [ ] Official SIH problem statement and PPT/PDF deck reconciled (files unavailable).
+
 ## Standalone frontend demo acceptance (separate from production phases)
 
-- [x] 50 fictional applications across 4 Regions, one shared data/calculation layer.
+- [x] 60 fictional applications across 4 Regions, one shared data/calculation layer.
 - [x] Case details, factual summary, timeline, communications, escalation ladder and activity.
 - [x] Configured return pause and repeated resubmission preserve remaining active SLA.
 - [x] EVC queue once, explicit assignment, scheduling dialog, visit/report/verification states, month calendar/list.

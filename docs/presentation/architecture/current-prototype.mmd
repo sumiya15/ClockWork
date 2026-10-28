@@ -1,0 +1,21 @@
+flowchart LR
+ subgraph Browser["Current browser prototype"]
+ UI["React mobile interface<br/>Human return, visit and verification actions"]
+ State["Shared state<br/>DemoApp data and current ref"]
+ Engine["service.js and model.js<br/>Routes, SLA, deadlines, verification"]
+ Store["localStorage full state<br/>sessionStorage view choices"]
+ AI["AI Assist<br/>Deterministic simulated preview"]
+ Alerts["Simulated notification records<br/>Manual scan and isolated clock"]
+ UI -->|Actions| State
+ State -->|Calculate| Engine
+ Engine -->|Save through act| Store
+ Engine -->|Return next state / React render| State
+ Store -->|Reload| State
+ State -->|Scoped snapshot| AI
+ Engine -->|Alert records| Alerts
+ end
+ Foundation["Separate FastAPI / MongoDB foundation<br/>Not connected to demo workflows"]
+ classDef current fill:#e8f3ec,stroke:#146347,color:#24332c;
+ classDef incomplete fill:#fff,stroke:#5b8770,color:#24332c,stroke-dasharray:8 5;
+ class UI,State,Engine,Store,AI,Alerts current;
+ class Foundation incomplete;

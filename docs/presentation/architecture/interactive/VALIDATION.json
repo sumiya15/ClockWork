@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-26",
+  "browser": "Installed Microsoft Edge through Playwright",
+  "offline": true,
+  "checks": [
+    "file:// opening with offline browser context; eight current nodes",
+    "hover highlights node and all three connected arrows",
+    "click pins; other hover preserves pin; Unpin releases",
+    "all 14 numbered steps; Next/Previous and arrow keys; explanation panel fit",
+    "all 16 component explanations fit, including components outside the guided sequence",
+    "focus + Enter pins; Escape unpins; Home/End/R keys",
+    "zoom controls and drag panning",
+    "actual Fullscreen API enter and exit from local file",
+    "both view buttons, reset and no horizontal/vertical scroll at three desktop sizes",
+    "reduced motion disables transitions"
+  ],
+  "layouts": [
+    {
+      "width": 1600,
+      "height": 900,
+      "noScroll": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "noScroll": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "noScroll": true
+    }
+  ],
+  "exported": [
+    {
+      "name": "walkthrough-current",
+      "width": 3200,
+      "height": 1800,
+      "nodeTextOverflow": []
+    },
+    {
+      "name": "walkthrough-target",
+      "width": 3200,
+      "height": 1800,
+      "nodeTextOverflow": []
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": [],
+  "video": "Never enabled or recorded"
+}

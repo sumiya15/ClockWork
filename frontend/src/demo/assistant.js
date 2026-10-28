@@ -1,0 +1,35 @@
+import {caseGuidance} from './caseGuidance.js';
+import {scopedApps,effectiveDue,remaining,isOpen,validDate} from './model.js';
+
+export const SUGGESTIONS=['Summarize this case','What is blocking progress?','What should the officer do next?','Draft a reminder'];
+
+// Replace this local adapter with a scoped FastAPI call when real AI is introduced.
+// No model, network, secrets, approval or communication side effects exist here.
+export async function askCase(data,caseId,question){
+ const app=scopedApps(data).find(a=>a.id===caseId);
+ if(!app)throw new Error('This case is unavailable in the selected persona scope.');
+ if(typeof question!=='string'||!question.trim())throw new Error('Enter a question or choose a suggestion.');
+ if(question.length>500)throw new Error('Keep the question within 500 characters.');
+ const q=question.trim().toLowerCase();
+ const records=data.registers.filter(r=>r.applicationId===app.id);
+ const pending=records.filter(r=>r.state!=='Verified');
+ const due=validDate(app.due)&&validDate(data.clock)&&(!app.pausedAt||validDate(app.pausedAt))?effectiveDue(data,app):null;
+ const timing=due?(app.pausedAt?`Clock paused since ${app.pausedAt}; ${remaining(data,app)} active days remaining.`:`${remaining(data,app)<0?`${-remaining(data,app)} days overdue`:remaining(data,app)===0?'Due today':`${remaining(data,app)} days remaining`}.`):'Timing information unavailable: a required date is missing or invalid.';
+ const next=!app.stage||!app.status?'Stage or status information is unavailable; check the case record before proposing a transition.':app.status==='Awaiting clarification'?'The institution should respond to the recorded clarification and resubmit.':!isOpen(app)?'The application is completed; review any independent outstanding evidence records.':app.stage==='Human decision'?'The competent authority must review the case and record its decision; no automatic approval is available.':app.stage==='EVC scheduling'?'The responsible officer should assign an authorized committee and schedule the visit.':app.stage==='EVC visit'?'The assigned committee should complete the visit and record its findings.':app.stage==='EVC report'?'Check report submission and officer verification separately; do not infer either is complete.':`The assigned owner should review ${app.stage||'Stage unavailable'} and complete it or return it with a reason through the normal case actions.`;
+ const facts=`${app.institution||'Institution unavailable'} (${app.institutionId}), ${app.region||'unavailable'} Region. Case ${app.id}: ${app.route||'Route unavailable'}; ${app.stage||'Stage unavailable'}; status ${app.status||'unavailable'}. Owner: ${app.owner||'unavailable'}. Target: ${due||'unavailable'}. ${timing} Rule version ${app.ruleVersion??'unavailable'}.`;
+ const evc=data.evc.find(e=>e.applicationId===app.id);
+ const evcFacts=evc?`EVC ${evc.id}. Assigned committee: ${evc.committee||'unavailable'}. Visit date: ${evc.visitDate||'unavailable'}. Scheduling: ${evc.scheduling}; visit: ${evc.completion}; report: ${evc.report}.`: 'EVC assignment information unavailable.';
+ const requirements=pending.length?pending.map(r=>`${r.id}: ${r.title}; ${r.state}; recorded due/expiry ${r.due||'unavailable'}. Evidence submission is separate from verification.`).join('\n'):'No unverified linked register items are recorded. This is not a compliance determination.';
+ let title='Case information',body='',draft=false;
+ if(q.includes('draft')&&(q.includes('reminder')||q.includes('deficiency'))){
+  draft=true;const deficiency=q.includes('deficiency');title=deficiency?'Deficiency letter draft':'Reminder draft';
+  const concern=deficiency?(app.reason?`Recorded clarification: ${app.reason}`:'No deficiency reason is recorded. [Officer: add a verified deficiency before issuing this draft.]'):requirements;
+  body=`DRAFT — REVIEW REQUIRED\nTo: ${app.contactEmail||'[recipient unavailable]'}\nSubject: ${deficiency?'Clarification requested':'Administrative reminder'} — ${app.id}\n\nDear ${app.institution||'Institution unavailable'},\n\nOur local case record shows ${app.stage||'Stage unavailable'}, status ${app.status||'unavailable'}, with a recorded target of ${due||'unavailable'}.\n${app.pausedAt?'The stage clock is currently paused; the target must be checked after resubmission.\n':''}${concern}\n${app.stage?.startsWith('EVC')?evcFacts:''}\n\nPlease review the relevant requirements through the designated workflow.\n\n[Authorized officer: verify recipient, facts, dates and wording before sending.]\nThis draft has not been sent and does not grant approval or establish non-compliance.`;
+ }else if(q.includes('summar')||q==='overview'){title='Case summary';body=`${facts}\n\n${requirements}\n\nNext administrative step: ${next}`;}
+ else if(q.includes('block')||q.includes('delay')){title='What is blocking progress?';body=`${app.institution}: ${app.stage||'Stage unavailable'} remains ${app.status||'unavailable'}. Recorded deadline: ${due||'unavailable'}. ${timing}\n${app.stage?.startsWith('EVC')?evcFacts:''}\n${app.reason?`Recorded return reason: ${app.reason}`:'A reason for delay is unavailable; it has not been recorded.'}\nNext administrative step: ${next}`;}
+ else if(q.includes('pending')||q.includes('outstanding')){title='Pending requirements';body=`Current stage: ${app.stage||'Stage unavailable'}; ${app.status||'unavailable'}.\n${requirements}\n${app.reason?`Recorded reason: ${app.reason}`:'No clarification reason is recorded.'}`;}
+ else if(q.includes('next')||q.includes('action')){title='Suggested administrative step';body=`${next}\nAssigned owner: ${app.owner||'unavailable'}. Actions remain subject to normal role and scope checks. This is guidance, not a decision.`;}
+ else if(q.includes('due')||q.includes('deadline')||q.includes('owner')||q.includes('status')||q.includes('approv')){title='Recorded case facts';body=`${facts}\nNo additional inspection result or statutory approval can be inferred from these fields.`;}
+ else{title='Information unavailable';body='This local preview supports case summaries, pending requirements, next administrative steps, recorded dates/status/owner, and reminder or deficiency drafts. The requested information is unavailable from those supported records. No policy text, inspection finding or answer has been invented.';}
+ return {title,body,draft,caseId:app.id,caseVersion:app.version,businessDate:data.clock,facts:[`Case: ${app.id}`,`Deadline: ${due||'unavailable'}`,`Assigned owner: ${app.owner||'unavailable'}`,...(app.stage?.startsWith('EVC')?[evcFacts]:[])],suggestedAction:caseGuidance(data,app),sources:[{id:app.id,label:`Case v${app.version}: status, route, owner and dates`,path:`case/${app.id}`},...(evc?[{id:evc.id,label:'Recorded EVC assignment and progress',path:`registers/${evc.id}`}]:[]),...records.map(r=>({id:r.id,label:`${r.title}: ${r.state}`,path:`registers/${r.id}`})),...(data.rules.some(r=>r.version===app.ruleVersion)?[{id:`rule-v${app.ruleVersion}`,label:'Pinned illustrative rule version; not official policy',path:'rules'}]:[])]};
+}

@@ -1,0 +1,18 @@
+# Preserve default rules; allow only verified source checksums in two manifests.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Verified SHA-256 source preservation checksums, not credentials"
+condition = "AND"
+paths = [
+  '''^docs/presentation/evidence/preserved-files-before\.json$''',
+  '''^docs/presentation/architecture/interactive/preservation-before\.json$'''
+]
+regexTarget = "secret"
+regexes = [
+  '''^2971da99feb62f4a719f6a26b490949a28326d31632542c06e34e286051f8a87$''',
+  '''^419791861c57401d8f404ba5ab3f9594038e5a107d9142f3b8beb426d6d27e17$''',
+  '''^b4bbde0cd6204eec9c000f3254510fcccfdf02e4f9efc5f3ee3fe0f8b2d2813e$''',
+  '''^f9c16ca58528ffb25794ea12ecee55cf942506a74e3485065e6707d106a66396$''',
+]

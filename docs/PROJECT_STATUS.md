@@ -1,3 +1,203 @@
+# Latest: presentation wording polished
+
+## Presentation wording polish (2026-10-25)
+
+Primary alert content now shows a readable deadline status, overdue/remaining days and next action. Historical alerts use their recorded deadline and scan date, not today's current record. Full rule/threshold references remain in expandable **Why this alert?** details. Recipient labels use Institution document coordinator; timeline update counts use singular/plural correctly. Case elapsed time no longer leads with a rule version. Communications, activity, reports and assistant dates use readable dates; encoded spaces are normalized at presentation boundaries without rewriting stored records.
+
+AI Assist has a compact **AI preview** label and an **About AI preview** information button. Its keyboard-accessible dialog explains sample-record responses, no live model, draft review and simulated messages/approvals. A small shared **Demo** badge remains visible. More > **About this demo** collects imagery, rule, local-storage and simulation explanations. Photos retain short not-inspection-evidence captions; uploads still explicitly say files are not uploaded. Copy uses the same polished text shown on screen.
+
+Verified: lint/build passed; 8 assistant/wording unit tests passed; all 8 Playwright browser checks passed in 46.1 seconds (workflows, persona/filter scopes, persistence/reset, 360/390/430 layouts, clipboard/fallback, image fallback, information dialog and detailed alert explanations). Console/API diagnostics passed. Refreshed 390x844 captures in docs/screenshots/mobile/, including 09-notifications, 12-institution-profile, 14/15 AI responses and 19-23 compact cards/EVC assistant. Notification and AI summary captures visually inspected. No backend, dependency, workflow or stored-data migration changes.
+
+Changed files: wording.js; AssistantPanel, Notifications, CaseDetail, InstitutionProfile, Evidence, RulesReports; DemoApp.jsx, ui.jsx, assistant.js, demo.css; wording.test.js and demo.spec.js; presentation docs and mobile PNGs.
+
+Commands: `node --test frontend/tests/assistant.test.js frontend/tests/wording.test.js`; `npm --prefix frontend run lint`; `npm --prefix frontend run build`; `CLOCKWORK_EXTERNAL_SERVER=1 CAPTURE_MOBILE=1` with `node frontend/node_modules/@playwright/test/cli.js test --config frontend/playwright.demo.config.js` (PowerShell environment variables set separately). Test-owned Vite ran at port 5175 and was stopped afterward.
+
+Next bounded task: record the walkthrough using current screenshots. Real AI, external delivery and production authorization remain outside this frontend work.
+
+---
+# Latest update: compact mobile cards and case-aware AI Assist
+
+2026-10-25. Frontend-only refinement complete; backend and persisted dataset schema unchanged.
+
+Changed: ui.jsx, DemoApp.jsx, InstitutionIdentity.jsx, caseGuidance.js, CampusImage.jsx, InstitutionProfile.jsx, CaseDetail.jsx, AssistantPanel.jsx, assistant.js and demo.css. These replace list photography with stable initials and useful metadata, restrict the single campus exterior to INST-2, expose AI Assist on Today/all Case sections, and provide EVC facts, linked references, next-screen actions and response retry. Updated assistant/browser checks, attribution, frontend guide, assistant design and SIH review.
+
+Actual checks: `node --test frontend/tests/assistant.test.js` (6 passed); `npm --prefix frontend run lint` (passed); `npm --prefix frontend run build` (passed, 40 modules). Playwright with CLOCKWORK_EXTERNAL_SERVER=1 and CAPTURE_MOBILE=1: `node frontend/node_modules/@playwright/test/cli.js test --config frontend/playwright.demo.config.js` (7 passed, 44.8 seconds). Test-owned Vite used port 5175. Initial run found one stale photo caption, corrected before the final passing run. Browser coverage includes workflow journey, all personas/filters, reload/reset, 360/390/430 widths, image fallback, assistant case switching, copy fallback, retry, EVC navigation and no console errors/API requests.
+
+390x844 captures saved under docs/screenshots/mobile/: 12 profile, 13 case overview, 19 Today compact cards, 20 compact institution cards, 21 EVC summary, 22 EVC blockers, 23 EVC reminder. Cards and blocker screenshots visually inspected. Earlier photo-list screenshots 16/17 are superseded historical artifacts.
+
+Limits: one licensed campus exterior available; other profiles intentionally use initials covers. AI is explicitly a simulated preview, no running model or sending. Missing delay reasons remain unavailable. Presentation refinements do not establish production authentication or statutory authority. Existing unrelated user edits preserved. Next bounded task: rehearse Today AI Assist -> overdue CW-2026-009 -> blocker -> reminder -> EVC link using the updated captures.
+
+---
+
+# Current status: photographic presentation layer complete
+
+2026-10-25: Added actual campus, laboratory equipment, classroom and library photographs from Pexels. Downloaded only optimized 800px variants: four JPEGs total 302,876 bytes. The previous rate-limited Wikimedia source was not retried. Source pages, photographers, Pexels License, direct download URLs, dimensions and SHA-256 values are recorded in IMAGE_ATTRIBUTION.md. No dependency, extracted tool, archive or database was deleted; disk space was checked first (~267 MB available).
+
+## Focused changes
+
+- `frontend/public/photos/{campus,laboratory,classroom,library}.jpg`: real local photographs, also verified byte-identical in production dist/photos.
+- `frontend/src/demo/CampusImage.jsx`: local image selection, alt text, crop positions, explicit illustrative/fictional captions, retained inline loading-error fallback, and small facilities gallery.
+- `DemoApp.jsx`: compact Today campus banner below metrics. Dashboard/report charts remain photo-free.
+- `screens/InstitutionProfile.jsx`, `ui.jsx`: campus covers/thumbnails and exact illustrative-photo label. Real photos do not establish fictional institutions' facilities.
+- `screens/EvcRegister.jsx`: selected-record facilities preview, explicitly not verified inspection evidence. Workflow actions/statuses remain unchanged.
+- `demo.css`: restrained image crops and three-column mobile gallery. `frontend/tests/demo.spec.js`: local photo loading, no external request dependency, three widths, navigation and actual decoding-error fallback.
+- Updated IMAGE_ATTRIBUTION.md, FRONTEND_DEMO.md and SIH_DEMO_REVIEW.md. Existing simulated AI, dataset, backend and user changes preserved.
+
+## Actual verification
+
+- `npm.cmd --prefix frontend run lint`: passed.
+- `npm.cmd --prefix frontend run build`: passed, 38 modules, final run 218 ms.
+- With the documented test-owned Vite server on 5175 and CLOCKWORK_EXTERNAL_SERVER=1, `node node_modules/@playwright/test/cli.js test --config playwright.demo.config.js`: **6 passed in 37.3s**, clean exit. No console/runtime errors or unexpected backend requests. New image check blocks external HTTP requests and verifies local JPEG dimensions; navigation/fallback and 360/390/430 widths passed.
+- Sequential opt-in captures with `--grep 'phone walkthrough|institution imagery|local photographic'`: **3 passed in 15.4s**. Final gallery framing recheck/capture with `--grep 'local photographic'`: **1 passed in 2.9s**.
+- All 18 PNGs in docs/screenshots/mobile verified 390x844. Affected photo screens visually inspected for crops, label readability and overlap. No videos/traces generated. Test server stopped after work; unrelated servers untouched.
+
+## Updated presentation artifacts
+
+- `16-today-photo.png`: compact campus banner.
+- `17-institution-photo-cards.png`: campus thumbnails.
+- `12-institution-profile.png`: campus cover.
+- `13-case-overview.png`: case cover.
+- `18-evc-facility-photos.png`: laboratory, classroom and library gallery.
+
+Remaining screenshots 01-15 were also refreshed through the preserved workflow/assistant journeys. Set 01-10 uses 1 December 2026; photo/profile/AI sets 11-18 use 25 October 2026. Do not imply the stock photos depict verified facilities, inspection results or real institutional endorsement.
+
+No photo-delivery blocker remains. This layer is ready for prototype PPT/screenshots and recording; underlying production/security/official-reference limitations remain as documented. Offline means locally hosted assets with no external image service, not a new service worker or file:// app. Next task is presentation rehearsal or actual PPT review, not backend rebuilding.
+
+---
+
+# Prior status
+
+# Current status: institution profiles and AI preview verified for presentation
+
+Updated 2026-10-25. The frontend-only enhancement is complete and verified for prototype PPT screenshots and a rehearsed mobile recording. A real model, real authentication, external delivery and production readiness are not claimed. Backend code, database, extracted tools and user edits remain preserved. No MongoDB archive was deleted in this run; roughly 277 MB was already free at the start and about 249 MB remained after capture.
+
+## Implemented files and purpose
+
+- `frontend/src/demo/CampusImage.jsx`, `assets/campus-1.svg` through `campus-3.svg`, `screens/InstitutionProfile.jsx`: fictional scoped profiles, local illustrative campus imagery, thumbnails, inline decoding-error fallback and application/requirement links. Photos could not be downloaded because Wikimedia returned HTTP 429; no broken remote image dependency or false photo claim was introduced.
+- `frontend/src/demo/assistant.js`, `screens/AssistantPanel.jsx`: replaceable deterministic async service, scope checks, case-specific summaries/pending/next actions, review-only drafts, supported questions, citations, loading/error/retry, clipboard/manual-copy fallback. Missing date/stage data is reported unavailable. Responses are ephemeral and invalidated on case/scope/revision changes.
+- `DemoApp.jsx`, `screens/CaseDetail.jsx`, `ui.jsx`, `demo.css`: More and case entry points, institution navigation, coherent navy/blue/emerald styling and existing SVG system. Fixed the Today month abbreviation for single-digit dates and keyboard focus restoration after modal close.
+- `frontend/index.html`, `frontend/public/favicon.svg`: local favicon fixes the console 404 found by browser checks.
+- `frontend/tests/assistant.test.js`, `frontend/tests/demo.spec.js`, `frontend/playwright.demo.config.js`: assistant service tests and expanded mobile checks; every browser test watches console/runtime errors and backend API requests. Optional external test server avoids a Windows teardown hang. Capture is opt-in, sequential, without video/trace artifacts.
+- `docs/FRONTEND_DEMO.md`, `SIH_DEMO_REVIEW.md`, `IMAGE_ATTRIBUTION.md`, `ASSISTANT_DESIGN.md`: actual setup, walkthrough, evidence, asset provenance and future authorized FastAPI/model integration. No new framework/dependency was installed.
+
+## Actual commands and outcomes
+
+- `node --test frontend/tests/assistant.test.js frontend/tests/demo-service.test.js`: **13 passed**, 695 ms on the last service run.
+- `npm.cmd --prefix frontend run lint`: **passed**.
+- `npm.cmd --prefix frontend run build`: **passed**, 41 modules; final run 390 ms.
+- Started a test-owned server from frontend: `node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5175 --strictPort`.
+- With CLOCKWORK_EXTERNAL_SERVER=1, `node node_modules/@playwright/test/cli.js test --config playwright.demo.config.js`: **5 passed in 41.0 seconds**, exit 0. Covers full workflow, every individual filter/persona, all mobile sections, keyboard, assistant, images, copy/retry, persistence/reset, and 360/390/430 widths; no console/runtime errors or /api requests.
+- Final single-digit month-label check: phone walkthrough **1 passed in 9.3s**. Actual corrupt-image fallback check: institution/assistant journey **1 passed in 8.3s**.
+- With CLOCKWORK_EXTERNAL_SERVER=1 and CAPTURE_MOBILE=1, same command with `--grep 'phone walkthrough|institution imagery'`: **2 passed in 16.4 seconds**, exit 0. Captured sequentially after verification. The owned server was stopped with Ctrl+C afterward; unrelated servers were not stopped.
+
+Initial managed-server runs exposed a missing favicon and focus-restoration issue, which were fixed. The Windows Playwright-managed server hung during teardown; the documented two-terminal workflow produces clean test exits. No physical device test was performed; browser checks used Edge mobile emulation.
+
+## Delivered presentation artifacts
+
+All 15 PNGs in `docs/screenshots/mobile/` were validated at 390x844, visually reviewed and copied atomically; total size about 720 KB. The requested new set is:
+
+1. `11-dashboard-assist.png`
+2. `12-institution-profile.png` (illustrative campus, not a photograph)
+3. `13-case-overview.png`
+4. `14-ai-case-summary.png`
+5. `15-ai-reminder-draft.png`
+
+New set 11-15 uses 25 October 2026 consistently. Refreshed workflow set 01-10 uses 1 December 2026 after clock advancement. AI captures visibly retain the Simulated AI preview label. The institution action fits above navigation; no page overflow/overlap was found. Original SVG workflow diagram remains available. No narrated video was recorded.
+
+## Remaining limits and next task
+
+No implementation blocker remains for the presented frontend path. Photograph retrieval is the explicit fallback limitation; imagery is original local illustration. Official SIH problem statement/ID, reference PPT/PDF and submission format remain unavailable. Existing blueprint gaps (new filing, conditional-approval undertaking creation, general override, production audit/storage/authentication) remain separately documented. The assistant is simulated and cannot send or approve.
+
+Next smallest task: supply the actual PPT/problem statement for a slide-level coverage check and record the documented workflow plus optional 60-90-second assistant segment. Do not restart backend phases or add a real model without a separate scoped implementation task.
+
+---
+
+# Historical status before final verification
+
+# Current status: profiles and simulated AI implemented; browser checks disk-blocked
+
+Added `CampusImage.jsx`, three original campus SVGs, `screens/InstitutionProfile.jsx`, `assistant.js`, `screens/AssistantPanel.jsx` and assistant unit tests. Integrated scoped profiles and AI Assist through More, case overview and case-card thumbnails. Existing workflows, backend, dependency metadata and storage schema are preserved. Assistant answers are deterministic, cited and scoped; no model is running. Copy/retry/loading/unknown-information states and review-only drafts are implemented. Images are labeled illustrations, not photographs; fallback is inline.
+
+Updated FRONTEND_DEMO.md, SIH_DEMO_REVIEW.md, IMAGE_ATTRIBUTION.md and ASSISTANT_DESIGN.md. No TypeScript/framework/chart/icon/animation/AI dependency was installed.
+
+Actual checks: 12 unit tests passed; lint and production build passed (41 modules). Browser test additions and updated screenshots are **unverified**, deliberately deferred because disk free space dropped from ~22 MB to <7 MB. Existing submission screenshots were not overwritten. No downloaded archive or database was removed. Permission to remove only `.local/tools/mongodb.zip` (313,441,273 bytes) was requested and is pending.
+
+Next bounded task: free disk space with approval, run `npx playwright test --config playwright.demo.config.js` in frontend, fix any failures, then opt-in sequential image capture for the institution/assistant journey and visual review. Do not describe the enhanced frontend as fully presentation-ready before those checks. Planned new PNG names 11 through 15 are recorded in FRONTEND_DEMO.md; they do not yet exist as verified deliverables.
+
+---
+
+# Current status: mobile polish implemented; final browser review awaits disk space
+
+## Recovery and changes in this run
+
+Verified `frontend/src/demo/ui.jsx` is complete, with every required shared export intact. Removed only reproducible Python bytecode caches and a zero-byte interrupted documentation temporary file. No source, reference document, submitted screenshot, extracted tool, archive or database was deleted. Downloaded MongoDB ZIP removal is awaiting permission: `.local/tools/mongodb-complete.zip` (805,009,624 bytes) and `.local/tools/mongodb.zip` (313,441,273 bytes).
+
+Changed `frontend/src/demo/demo.css`: navy/blue base, restrained emerald actions, darker secondary text, clear focus outlines, larger header touch targets, coherent SVG sizes and reduced-motion handling. Corrected notification separator text in `screens/Notifications.jsx`. Business logic, backend and localStorage schema are unchanged.
+
+Updated `frontend/tests/demo.spec.js` and `frontend/playwright.demo.config.js`: every test checks console/runtime errors and unexpected API access; added keyboard filter-sheet and case-section checks; default tests produce no screenshots/videos/traces. Opt-in sequential screenshot capture uses 1 December 2026 consistently. Existing submission PNGs remain untouched pending verification. Added small local vector `docs/screenshots/mobile/workflow-overview.svg`; no remote pictures or AI service added.
+
+Updated FRONTEND_DEMO.md with exact recording/reset/capture instructions and SIH_DEMO_REVIEW.md with current source review, coverage evidence, AI/imagery limits and gaps. Correct blueprint re-read in full; official problem statement/ID and reference PPT/PDF remain unavailable.
+
+## Actual checks
+
+- `node --test frontend/tests/demo-service.test.js`: 8 passed (827 ms).
+- `npm.cmd --prefix frontend run lint`: passed.
+- `npm.cmd --prefix frontend run build`: passed, 34 modules (299 ms before final punctuation-only fix).
+- New full browser suite and final PNG capture: **not run in this turn**, deliberately deferred for insufficient disk headroom. Historical browser checks below predate the current visual/test revision.
+
+Disk space fell from 5.6 MB to zero during inspection. Reproducible bytecode-cache removal recovered about 31 MB, still inadequate headroom for reliable browser profiles/captures on a fluctuating full drive. Do not call this revision screenshot/recording ready yet. Next bounded task: approve the two redundant ZIP deletions or free space externally; then run the complete four-test browser suite, fix failures, capture sequentially, inspect every PNG and update this status with actual results. Do not delete database files. Browser test server remains on isolated port 5175.
+
+---
+
+# Latest update: green palette and workspace labels
+
+Changed only presentation styling/copy and matching browser-test selectors. `frontend/src/demo/demo.css` uses forest/emerald colors with dark green primary buttons. DemoApp and screen labels use Workspace, Rules, Evidence and Activity. More > About ClockWork discloses fictional records and simulated actions; messages still truthfully indicate they are not sent, and approval/upload limitations remain. No credentials/login or new navigation was added. Backend, persisted data schema and business rules are unchanged.
+
+Checks: lint and production build passed. All three browser tests reported passing (workflow 7.3s, personas/filters 19.3s, responsive layouts/rules/evidence 4.5s); the runner again stalled in Windows server teardown and was interrupted after test completion. Final footer-copy cleanup was lint/build checked. Existing published screenshots predate this change; current green captures are in frontend/test-results/mobile/ and should be refreshed for the next presentation export.
+
+---
+
+# Current status: mobile SIH presentation demo complete
+
+Updated 2026-10-25. The immediate scope is the standalone React/Tailwind presentation demo, not backend Phase 2. Backend code and stored databases were preserved; no backend service or database was required for these checks. Git metadata is now present; no commits, resets, or pushes were performed. Older status below is historical.
+
+## Changes and working behavior
+
+- `frontend/src/demo/DemoApp.jsx`, `demo.css`, and `ui.jsx`: compact navy app shell, reserved bottom navigation, mobile cards/charts, filter sheets, full-screen record details, and retained navigation/filter state. More contains rules, reports, notifications and separate demo controls.
+- `frontend/src/demo/screens/DemoControls.jsx`: shared simulated persona, date, scan and reset controls. The other screen modules adapt case history/actions, EVC scheduling/calendar, evidence/verification, rules, reports and notifications to phone use.
+- `frontend/src/demo/model.js`, `service.js`, and `reports.js`: 60 fictional applications across four Regions, 120 linked undertaking/document records, meaningful persona/filter scopes, deterministic 2026-10-25 seed date, calculated notifications and metrics, completed/resubmitted states, and version 3 local persistence. Older saved data is preserved with an explicit improved-seed reset offer; old storage keys remain untouched.
+- `frontend/tests/demo-service.test.js`, `frontend/tests/demo.spec.js`, and `frontend/playwright.demo.config.js`: focused service checks and mobile journeys. The test-owned frontend uses port 5175 to avoid disturbing an existing server on 5173.
+- README, `FRONTEND_DEMO.md`, `SIH_DEMO_REVIEW.md`, acceptance checklist and migration notes describe the actual presentation scope, sources, walkthrough and limitations. Ten real browser screenshots are in `docs/screenshots/mobile/`.
+
+Return/resubmit preserves remaining configured SLA; scrutiny adds an EVC queue entry once. Scheduling, visit completion and report verification remain distinct. Evidence submission updates officer queues immediately; verification updates counts. Pending lease renewals retain the old expiry until accepted. Six reports, CSV downloads, rule preview/publication, idempotent simulated alerts, scoped personas, reload persistence and reset work locally. All messages, access controls, approvals and uploads are explicitly simulated.
+
+## Commands actually run and results
+
+- `node --test frontend/tests/demo-service.test.js`: **8 passed**, final run approximately 536 ms.
+- `npm.cmd --prefix frontend run lint`: **passed**.
+- `npm.cmd --prefix frontend run build`: **passed**, 34 modules transformed.
+- From `frontend`: `npx.cmd playwright test --config playwright.demo.config.js`: **3 passed in 31.2 seconds** on the final run.
+
+Browser checks used an Edge mobile/touch viewport, not physical phones. They exercised the full walkthrough, all five personas, four Regions, eight committees, every individual filter option, honest combined-filter empty states, back navigation, reload persistence, legacy-data migration, reset, blank reasons, invalid rule preview and immediate dashboard updates. Layout checks covered 360, 390 and 430 px widths, including dialogs, calendar and filter sheet. The journey made no application API requests and reported no page errors. Screenshots were captured at 390 ? 844 and visually reviewed for readable content and navigation overlap. Backend/API-mode tests were not rerun because this scope did not change them.
+
+## Presentation artifacts
+
+`docs/screenshots/mobile/`: `01-today.png`, `02-dashboard.png`, `03-case-timeline.png`, `04-case-escalation.png`, `05-evc-register.png`, `06-undertaking-verification.png`, `07-document-renewal.png`, `08-document-verified.png`, `09-notifications.png`, `10-reports.png`.
+
+See `FRONTEND_DEMO.md` for startup commands and the deterministic five-minute mobile walkthrough. A narrated video has not been recorded.
+
+## Limitations, assumptions and next bounded task
+
+This is browser-local simulation, not production authentication, statutory approval, encrypted document storage, durable audit or external delivery. Uploads store metadata, not document bytes. Published demo timelines are examples, not official policy. Existing production-phase acceptance items remain separate.
+
+The correct supplied blueprint was inspected as DOCX text; the review uses section/paragraph references rather than invented page numbers. No official SIH problem statement/ID or reference PPT/PPTX/PDF was found. `SIH_DEMO_REVIEW.md` maps available requirements and ranks remaining gaps, including new application filing, automatic undertaking creation from a new conditional approval, and general reasoned overrides. Presentation readiness does not establish production readiness or SIH selection.
+
+Next smallest useful task: supply the exact official SIH problem statement (ID/year included) and reference presentation files, reconcile only presentation-critical differences, then record the documented mobile walkthrough. No backend phase is restarted by this task.
+
+---
+
+# Historical status before the mobile redesign
+
 # Current status: completed standalone frontend workflow demo
 
 The user's untruncated presentation requirements are implemented in the existing
